@@ -3,6 +3,7 @@ from django.contrib import admin
 
 class ArticleTags(models.Model):
     tag_name = models.CharField(max_length=100)
+    tag_color = models.CharField(max_length=10)
 
 
 class Article(models.Model):
@@ -12,12 +13,28 @@ class Article(models.Model):
     date = models.DateTimeField()
 
 
-class BlogTitle(models.Model):
+class BlogTheme(models.Model):
+    theme_name = models.CharField(max_length=100)
     icon = models.ImageField()
-    text = models.CharField(max_length=100)
+    title_text = models.CharField(max_length=100)
+    title_img = models.ImageField()
+    body_img = models.ImageField()
+
+
+class TagsAdmin(admin.ModelAdmin):
+    list_display = ('tag_name',)
+
 
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('title','tag','date')
+    list_display = ('title','tag','date',)
     list_filter = ('date',)
 
+
+class BlogThemeAdmin(admin.ModelAdmin):
+    list_display = ('theme_name',)
+
+
+
 admin.site.register(Article,ArticleAdmin)
+admin.site.register(ArticleTags,TagsAdmin)
+admin.site.register(BlogTheme,BlogThemeAdmin)
