@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="../static/css/index.css" media="all">
-	<script type="text/javascript" src="../static/js/index.js"></script>
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static "css/index.css" %}" >
+	<script type="text/javascript" src="{% static "js/index.js" %}"></script>
 	<title>DiSoul's Blog</title>
 </head>
 <body>
@@ -26,7 +27,7 @@
 			</div>
 		</div>
 		<div class="main-content">
-		
+			{% block main-content%}{% endblock %}
 		</div>
 	</div>
 	<footer class="site-footer"></footer>
