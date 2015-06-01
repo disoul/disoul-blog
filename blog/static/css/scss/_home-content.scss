@@ -1,0 +1,18 @@
+$mid-black: #2a2a2a;
+
+.main-content {
+	display: flex;
+	justify-content: space-around;
+}
+
+.tag_list {
+    width: 300px;
+	height: 500px;  /*test*/
+  background-color: $mid-black;
+}
+
+.article_block {
+	width: 500px;
+	height: 400px; /*test*/
+	background-color: $mid-black;
+}
