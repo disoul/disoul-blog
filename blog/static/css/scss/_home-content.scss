@@ -22,5 +22,12 @@ $low-black: #AAA;
 
 .article_block {
 	width: 80em; /*test*/
-	background-color: $mid-black;
+	background-color: rgba($mid-black,0.7);
+	margin-top: 2em;
+	.article-title {
+		font-size: 4em;
+	}
+	.article-content {
+		font-size: 1.5em;
+	}
 }

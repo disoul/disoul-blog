@@ -9,7 +9,20 @@
     </div>
 
     <div class="article_block">
-
+	{% for article in articles %}
+	<div class="article">
+		<div class="article-title">
+		    {{ article.title }}
+		</div>
+		<div class="article-tag">
+		    <a herf="#">{{ article.tag.tag_name }}</a>
+		</div>
+		<div class="article-content">
+		    {{ article.content }}
+		</div>
+		<div class="article-other"></div>
+	</div>
+	{% endfor %}
     </div>
 </div>
 {% endblock %}
