@@ -1,18 +1,26 @@
 $mid-black: #2a2a2a;
-
+$low-black: #AAA;
 .main-content {
 	display: flex;
 	justify-content: space-around;
+	align-items: flex-start;
 }
 
 .tag_list {
-    width: 300px;
-	height: 500px;  /*test*/
-  background-color: $mid-black;
+    width: 20em;
+    background-color: rgba($mid-black,0.7);
+	margin-top: 2em;
+	li {
+		font-size: 1.5em;
+		list-style-type: none;
+		margin-left: 1em;
+	}
+	li:hover {
+		background-color: rgba($low-black,0.7);
+	}
 }
 
 .article_block {
-	width: 500px;
-	height: 400px; /*test*/
+	width: 80em; /*test*/
 	background-color: $mid-black;
 }
