@@ -1,5 +1,6 @@
 $mid-black: #2a2a2a;
 $low-black: #AAA;
+$article-bg-color: #E7E7E7;
 .main-content {
 	display: flex;
 	justify-content: space-around;
@@ -22,12 +23,18 @@ $low-black: #AAA;
 
 .article_block {
 	width: 80em; /*test*/
-	background-color: rgba($mid-black,0.7);
 	margin-top: 2em;
-	.article-title {
-		font-size: 4em;
-	}
-	.article-content {
-		font-size: 1.5em;
+	.article {
+		background-color: $article-bg-color;
+		padding: 1.5em;
+		border: 0.5em solid $article-bg-color; 
+		border-radius: 10px;
+		box-shadow: 0 0 20px $mid-black;
+		.article-title {
+			font-size: 4em;
+		}	
+		.article-content {
+			font-size: 1.5em;
+		}
 	}
 }
