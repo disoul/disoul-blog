@@ -2,11 +2,6 @@
 {% block main-content %}
 
 <div class="main-content">
-    <div class="tag_list">
-	{% for tag in tags %}
-	<li style="color: {{ tag.tag_color }}">{{ tag.tag_name }}</li>
-	{% endfor %}	
-    </div>
 
     <div class="article_block">
 	{% for article in articles %}
@@ -20,7 +15,12 @@
 		<div class="article-content">
 		    {{ article.content }}
 		</div>
-		<div class="article-other"></div>
+		<div class="article-other">
+		    <hr>
+		    <div>
+		        <p>DiSoul {{ article.date|date:"F j, Y" }} 
+		    </div>
+		</div>
 	</div>
 	{% endfor %}
     </div>
