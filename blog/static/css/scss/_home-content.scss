@@ -11,26 +11,26 @@ $tag-bg-color: #D7D7D7;
 
 .article_block {
 	width: 80em; /*test*/
-	margin-top: 2em;
 	margin-bottom: 5em;
+	z-index: -100;
+	height: 100em;
 	.article {
-		background-color: $article-bg-color;
 		padding: 1.5em;
 		padding-bottom: 0;
-		border: 0.5em solid $article-bg-color; 
-		border-radius: 10px;
-		box-shadow: 0 0 20px $mid-black;
+		/*border-radius: 10px;*/
 		.article-title {
 			font-size: 3.5em;
+			color: $light-blue-200;
 		}
 		.article-tag {
 			width: 100%;
 			height: 1.3em;
 			display: flex;
-		    background-color: $tag-bg-color; 
+		    background-color: $light-blue-200; 
 			margin-bottom: .5em;
-			. a {
+		     a {
 				cursor: pointer;
+				color: white;
 			}
 		}	
 		.article-content {
@@ -41,10 +41,10 @@ $tag-bg-color: #D7D7D7;
 			height: 1.5em;
 			hr {
 				margin-top: 1.5em;
+				color: $light-blue-200;
 			}
 			div {
 			    height: 100%;
-			    background-color: $article-bg-color;
 				float: right;
 			}
 		}
