@@ -1,6 +1,16 @@
 @import "navigation";
 @import "home-content";
+@import "left-list";
 
 body {
 	background-color: $black-50;
+}
+
+.page-warp {
+	display: flex;
+}
+
+.home-main {
+	order: 2;
+	flex: 6;
 }
