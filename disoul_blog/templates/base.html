@@ -4,6 +4,8 @@
 	<meta charset="UTF-8">
 	{% load staticfiles %}
 	<link rel="stylesheet" href="{% static "css/index.css" %}" >
+	<link rel="stylesheet" href="{% static "css/font-awesome-4.3.0/css/font-awesome.min.css" %}" >
+	<script type="text/javascript" src="{% static "js/jquery-1.11.3.min.js" %}"></script>
 	<script type="text/javascript" src="{% static "js/index.js" %}"></script>
 	<title>DiSoul's Blog</title>
 </head>
@@ -15,10 +17,13 @@
 					<p id="name">DiSoul</p>
 					<div id="horizontal-line"></div>
 					<p id="about-words">This is a blog from disoul </br>This is a test paragraph</p>
-				
+					<div class="left-list-control">
+						<i class="fa fa-angle-double-left fa-3x"></i>
+					</div>	
 				</div>
 				<div class="navigation-bar">
 					<ul>
+						
 						<li><a href="#">Home</a></li>
 						<li><a href="#">Article</a></li>
 						<li><a href="#">AboutMe</a></li>

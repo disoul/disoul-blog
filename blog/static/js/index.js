@@ -1,4 +1,5 @@
-function linkToHome(){
-    window.location.href="http://127.0.0.1:8000/blog/" ;
-
-}
+$(document).ready(function(){
+		$(".left-list-control").click(function(){
+			 $(".left-list").animate({width: '220px'});
+		});
+});
