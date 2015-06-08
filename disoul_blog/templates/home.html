@@ -13,7 +13,7 @@
 		    <a herf="#">{{ article.tag.tag_name }}</a>
 		</div>
 		<div class="article-content">
-		    {{ article.content }}
+		    {{ article.content|safe }}
 		</div>
 		<div class="article-other">
 		    <hr>
@@ -29,8 +29,17 @@
 
 {% block left-list %}
     <div class="left-list">
-    	<div class="logo"></div>
-    	<div class="list"></div>
+	<div class="tag-list">
+	    <p>Tag list</p>
+	    <ul>
+	        {% for tag in tags %}
+    	    	    <li>
+		        <a herf="#">{{ tag.tag_name}}</a>
+		    </li>
+	        {% endfor%}
+	    </ul>	    
+	</div>
+    	<div class="date-list"></div>
     </div>
 {% endblock %}
 
