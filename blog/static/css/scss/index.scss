@@ -1,7 +1,17 @@
 @import "navigation";
 @import "home-content";
+@import "left-list";
 
 body {
-	background-image: url('../image/body-image.jpg');
-	background-size: cover;
+	background-color: $black-50;
+}
+
+.page-warp {
+	display: flex;
+	justify-content: center;
+}
+
+.home-main {
+	order: 2;
+	flex: 1;
 }

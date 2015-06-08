@@ -1,0 +1,39 @@
+$light-blue-600: #039be5;
+$mid-white: #C2C0C0;
+
+.left-list {
+	background-color: white;
+	border-right: 1px solid $mid-white;
+    order: 1;
+	width: 0px;
+	.tag-list {
+		color: $light-blue-600;
+		p {
+		    text-align: center;
+		    font-size: 3em;
+			display: block;
+			padding-bottom: .2em;
+			border-bottom: 1px solid $mid-white;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+		ul {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			padding-left: 0;
+		}
+		li {
+			padding-left: .5em;
+			font-size: 1.2em;
+			display: block;
+			color: black;
+			margin-top:.5em;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+		li:hover {
+			background-color: black;
+		}
+	}
+}

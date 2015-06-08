@@ -2,6 +2,11 @@ $testBgColor: #000;
 $mid-black: #2D2D2D;
 $low-black: #4D4D4D;
 $sakura-color: #93408F;
+$light-blue-400: #29b6f6;
+$light-blue-200: #81d4fa;
+$light-blue-50: #e1f5fe;
+$black-50: #fafafa;
+$black-200: #eeeeee;
 * { 
 	 -webkit-box-sizing: border-box;
    -moz-box-sizing: border-box;
@@ -11,26 +16,41 @@ $sakura-color: #93408F;
 
 
 .navigation{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-	height: 350px;
-	background-image: url('../image/title.jpg');
-	background-repeat: no-repeat;
-	background-position: center;
-	box-shadow:0 0 20px 10px $mid-black;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+	height: 250px;
+	background-color: $light-blue-400;
 }
 
 .title{
-  flex: 6;
+    flex: 6;
 	position: relative;
+	left: -14em;
+	top: -3em;
+	.left-list-control {
+		position: fixed;
+		width: 5em;
+		height: 3.5em;
+		background-color: $black-200;
+		top: 400px;
+		left: -5px;
+		cursor: pointer;
+		border:10px solid $black-200;
+		border-radius: 10px;
+		box-shadow: 0 0 7px $mid-black;
+		i {
+			float: right;
+			margin-right: 20px;
+			position: relative;
+			bottom: 8px;
+		}
+	}
 }
 
 .navigation-bar {
 	flex: 1;
-	background-color: rgba($mid-black,0.7);
-	border-top: 5px solid  rgba($mid-black,0.7);
-	border-bottom: 5px solid  rgba($mid-black,0.7);
+	background-color: $black-200;
 	ul {
 		display: flex;
 		flex-direction: row;
@@ -40,11 +60,12 @@ $sakura-color: #93408F;
 		li {
 			list-style-type: none;
 			a {
-				color: white;
+				color: black;
 				display: inline-block;
 				width: 7em;
 				height: 100%;
-				padding-top: 7.5px;
+				margin-bottom: 6px;
+				margin-top: 6px;
 				text: {
 					align: center;
 					decoration: none;
@@ -53,6 +74,9 @@ $sakura-color: #93408F;
 					size: 20px;
 			}
 			}
+			i {
+				flex:1;
+			}
 		}	
 		li:hover{
 			background-color: rgba($low-black,0.7);
@@ -60,46 +84,29 @@ $sakura-color: #93408F;
 	}
 }
 
-#disoul-pic {
-	background-image: url('../image/blog_icon.png'); 
-	background-size: cover;
-	width: 200px;
-	height: 200px;
-	border: 5px solid rgba($mid-black,0.9);
-	border-radius: 5px;
-	margin-left: 100px;
-	position: absolute;
-	bottom: 30px;
-	box-shadow: 0 0 20px 5px $mid-black;
-	cursor: pointer;
-}
-
 #name {
 	position: absolute;
 	left: 320px;
 	top: 80px;
+	color: white;
 	font: {
 		size: 3.5em;
-	}
-	text: {
-		shadow: 0 0 5px $sakura-color;
 	}
 }
 
 #horizontal-line {
 	width:30em;
-	border-top: 5px solid $mid-black;
+	border-top: 5px solid white;
 	position: absolute;
-  left: 325px;
+    left: 325px;
 	top: 150px;
-	box-shadow:0 0 20px 5px $sakura-color;
 }
 
 #about-words {
 	font-size: 1.8em;
+	color: white;
 	position: absolute;
 	top: 160px;
 	left: 325px;
-	text-shadow: 0 0 3px $sakura-color;
 
 }

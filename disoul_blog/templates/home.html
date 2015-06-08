@@ -2,11 +2,6 @@
 {% block main-content %}
 
 <div class="main-content">
-    <div class="tag_list">
-	{% for tag in tags %}
-	<li style="color: {{ tag.tag_color }}">{{ tag.tag_name }}</li>
-	{% endfor %}	
-    </div>
 
     <div class="article_block">
 	{% for article in articles %}
@@ -18,12 +13,33 @@
 		    <a herf="#">{{ article.tag.tag_name }}</a>
 		</div>
 		<div class="article-content">
-		    {{ article.content }}
+		    {{ article.content|safe }}
 		</div>
-		<div class="article-other"></div>
+		<div class="article-other">
+		    <hr>
+		    <div>
+		        <p>DiSoul {{ article.date|date:"F j, Y" }} 
+		    </div>
+		</div>
 	</div>
 	{% endfor %}
     </div>
 </div>
+{% endblock %}
+
+{% block left-list %}
+    <div class="left-list">
+	<div class="tag-list">
+	    <p>Tag list</p>
+	    <ul>
+	        {% for tag in tags %}
+    	    	    <li>
+		        <a herf="#">{{ tag.tag_name}}</a>
+		    </li>
+	        {% endfor%}
+	    </ul>	    
+	</div>
+    	<div class="date-list"></div>
+    </div>
 {% endblock %}
 

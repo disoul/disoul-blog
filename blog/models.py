@@ -11,6 +11,8 @@ class Article(models.Model):
     tag = models.ForeignKey(ArticleTags)
     content = models.TextField()
     date = models.DateTimeField()
+    class Meta():
+        ordering = ['-date']
 
 
 class BlogTheme(models.Model):
