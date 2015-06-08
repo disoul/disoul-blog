@@ -1,0 +1,18 @@
+$blue-700: #455ede;
+
+.site-footer {
+	width: 100%;
+	background-color: $blue-700;
+	height: 5em;
+	p {
+		text-align: center;
+		font-size: 1.5em;
+		color: white;
+		padding-top: 1em;
+		letter-spacing: .1em;
+		i {
+			margin-left: .5em;
+			margin-right: .5em;
+		}
+	}
+}
