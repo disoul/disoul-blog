@@ -18,4 +18,4 @@ def home(request):
     return HttpResponse(homepage.render(context))
 
 def MarkdownParse(content):
-    return markdown2.markdown(content)
+    return markdown2.markdown(content,extras=['fenced-code-blocks'])
