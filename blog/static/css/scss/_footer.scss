@@ -1,4 +1,15 @@
 $blue-700: #455ede;
+/*sticky footer by flexbox*/
+
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+.page-warp {
+	flex: 1;
+}
 
 .site-footer {
 	width: 100%;

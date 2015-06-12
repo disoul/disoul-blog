@@ -11,6 +11,7 @@ def home(request):
     article_objs = Article.objects.all()
     for article_obj in article_objs:
         article_obj.content = MarkdownParse(article_obj.content)
+        article_obj.tag = [tag for tag in  article_obj.tag.all()]
     context = Context({
               'tags':tag_objs,
               'articles':article_objs,

@@ -10,7 +10,9 @@
 		    {{ article.title }}
 		</div>
 		<div class="article-tag">
-		    <a herf="#">{{ article.tag.tag_name }}</a>
+		    {% for articletag in article.tag %}
+		    <a herf="#">{{ articletag.tag_name }}</a>
+		    {% endfor %}
 		</div>
 		<div class="article-content">
 		    {{ article.content|safe }}

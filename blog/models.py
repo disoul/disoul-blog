@@ -8,19 +8,11 @@ class ArticleTags(models.Model):
 
 class Article(models.Model):
     title = models.CharField(max_length=100)
-    tag = models.ForeignKey(ArticleTags)
+    tag = models.ManyToManyField(ArticleTags)
     content = models.TextField()
     date = models.DateTimeField()
     class Meta():
         ordering = ['-date']
-
-
-class BlogTheme(models.Model):
-    theme_name = models.CharField(max_length=100)
-    icon = models.ImageField()
-    title_text = models.CharField(max_length=100)
-    title_img = models.ImageField()
-    body_img = models.ImageField()
 
 
 class TagsAdmin(admin.ModelAdmin):
@@ -28,15 +20,9 @@ class TagsAdmin(admin.ModelAdmin):
 
 
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('title','tag','date',)
+    list_display = ('title','date',)
     list_filter = ('date',)
-
-
-class BlogThemeAdmin(admin.ModelAdmin):
-    list_display = ('theme_name',)
-
 
 
 admin.site.register(Article,ArticleAdmin)
 admin.site.register(ArticleTags,TagsAdmin)
-admin.site.register(BlogTheme,BlogThemeAdmin)
