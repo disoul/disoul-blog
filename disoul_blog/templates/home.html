@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block main-content %}
+{% load markdown_parse %}
 
 <div class="main-content">
 
@@ -10,12 +11,12 @@
 		    {{ article.title }}
 		</div>
 		<div class="article-tag">
-		    {% for articletag in article.tag %}
-		    <a herf="#">{{ articletag.tag_name }}</a>
+		    {% for articletag in article.tag.all %}
+		    <a href="#">{{ articletag.tag_name }}</a>
 		    {% endfor %}
 		</div>
 		<div class="article-content">
-		    {{ article.content|safe }}
+		    {{ article.content|markdown }}
 		</div>
 		<div class="article-other">
 		    <hr>

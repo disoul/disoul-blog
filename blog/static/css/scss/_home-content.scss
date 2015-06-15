@@ -12,7 +12,6 @@ $tag-bg-color: #D7D7D7;
 .article_block {
 	width: 80em; /*test*/
 	margin-bottom: 5em;
-	z-index: -100;
 	.article {
 		padding: 1.5em;
 		padding-bottom: 0;
@@ -25,12 +24,17 @@ $tag-bg-color: #D7D7D7;
 		.article-tag {
 			width: 100%;
 			height: 1.3em;
-			display: flex;
 		    background-color: $light-blue-200; 
 			margin-bottom: .5em;
 		     a {
 				cursor: pointer;
 				color: white;
+				margin-right: .5em;
+				margin-left: .5em;
+				text-decoration: none;
+				&:hover {
+					background-color: black;
+				}
 			}
 		}	
 		.article-content {
