@@ -2,13 +2,17 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	{% block staticfiles %}
 	{% load staticfiles %}
 	<link rel="stylesheet" href="{% static "css/code.css" %}" >
 	<link rel="stylesheet" href="{% static "css/index.css" %}" >
 	<link rel="stylesheet" href="{% static "css/font-awesome-4.3.0/css/font-awesome.min.css" %}" >
 	<script type="text/javascript" src="{% static "js/jquery-1.11.3.min.js" %}"></script>
 	<script type="text/javascript" src="{% static "js/index.js" %}"></script>
+	{% endblock %}
+	{% block title %}
 	<title>DiSoul's Blog</title>
+	{% endblock %}
 </head>
 <body>
 	<div class="page-warp">
@@ -18,9 +22,6 @@
 					<p id="name">DiSoul</p>
 					<div id="horizontal-line"></div>
 					<p id="about-words">This is a blog from disoul </br>This is a test paragraph</p>
-					<div class="left-list-control">
-						<i class="fa fa-angle-double-right fa-3x"></i>
-					</div>	
 				</div>
 				<div class="navigation-bar">
 					<ul>

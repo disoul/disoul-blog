@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block staticfiles %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static "css/code.css" %}" >
+    <link rel="stylesheet" href="{% static "css/tag.css" %}" >
+    <link rel="stylesheet" href="{% static "css/font-awesome-4.3.0/css/font-awesome.min.css" %}" >
+{% endblock %}
+
+{% block title %}
+<title>Tag-{{ tagname }}</title>
+{% endblock %}
+{% block main-content %}
+<div class="main-content">
+    <div class="tagblock">
+	<div class="tagname">
+	    <p>{{ tagname }}</p>
+	</div>
+	{% for article in articles %}
+	<div class="article_list">
+	    <div class="titleblock">
+	        <p>{{ article.title }}</p>
+	    </div>
+	    <div class="otherblock">
+	        <p>{{ article.date|date:"F j, Y" }}</p>
+	    </div>
+	</div>
+	{% endfor%}
+    </div>
+</div>
+{% endblock%}

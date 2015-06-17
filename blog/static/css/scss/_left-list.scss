@@ -1,6 +1,26 @@
 $light-blue-600: #039be5;
 $mid-white: #C2C0C0;
 
+.left-list-control {
+    position: fixed;
+    width: 5em;
+    height: 3.5em;
+    background-color: $black-200;
+    top: 400px;
+    left: -5px;
+    cursor: pointer;
+    border:10px solid $black-200;
+    border-radius: 10px;
+    box-shadow: 0 0 7px $mid-black;
+	i {
+		float: right;
+		margin-right: 20px;
+		position: relative;
+		bottom: 8px;
+	}
+}
+
+
 .left-list {
 	background-color: white;
 	border-right: 1px solid $mid-white;

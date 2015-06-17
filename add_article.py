@@ -11,7 +11,8 @@ def getFile():
     for dirpath,dirnames,filenames in os.walk(ARTICLE_DIR):
         for filename in filenames:
             if filename[0] == '*':
-                file_list.append(dirpath+'/'+filename)
+                os.rename(dirpath+'/'+filename,dirpath+'/'+filename[1:])
+                file_list.append(dirpath+'/'+filename[1:])
 
     return file_list
 
@@ -19,6 +20,8 @@ def getFile():
 def update_tags(tag_list):
     tag_obj_list = []
     for tag in tag_list:
+        if tag[-1] == '\n':
+            tag = tag[:-1]
         try:
             obj = ArticleTags.objects.get(tag_name=tag)
         except ArticleTags.DoesNotExist:
@@ -32,7 +35,8 @@ def update_articles(path):
     article_file = open(path,'r')
 
     article = article_file.readlines()
-    article_title = article[0]
+    article_file.close()
+    article_title = article[0][:-1]
     article_content = ''
     for content in article[2:]:
         article_content = article_content + content
@@ -40,7 +44,16 @@ def update_articles(path):
     tag_list = article[1].split(' ')
     article_tag = update_tags(tag_list)
 
-    article_obj = Article.objects.create(title=article_title,content=article_content)
+    try:
+        article_obj = Article.objects.get(title=article_title)
+    except Article.DoesNotExist:
+        article_obj = Article.objects.create(title=article_title,content=article_content)
+    else:
+        isupdate = raw_input('update article:'+article_title+'y/n?')
+        if isupdate == 'y':
+            article_obj.content = article_content
+            article_obj.save()
+
     for tag_obj in article_tag:
         article_obj.tag.add(tag_obj)
 
@@ -49,6 +62,7 @@ def main():
     file_list = getFile()
     for filepath in file_list:
         update_articles(filepath)
+    
 
 
 if __name__ == '__main__':
