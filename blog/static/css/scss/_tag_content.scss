@@ -25,12 +25,15 @@
 	border-top: 1px solid $light-blue-200;
 	.titleblock {
 		font-size: 2em;
-		color: $light-blue-200;
         cursor: pointer;
 		display: inline-block;
-	}
-	.titleblock:hover {
+		a {
+		text-decoration: none;
+		color: $light-blue-200;
+		}
+		a:hover {
 		color: $light-blue-400;
+		}
 	}
 
 	.otherblock {

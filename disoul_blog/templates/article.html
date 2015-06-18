@@ -13,4 +13,24 @@
 {% endblock %}
 
 {% block main-content %}
+{% load markdown_parse %}
+<div class="article_block">
+	<div class="article">
+		<div class="article-title">
+		    {{ article.title }}
+		</div>
+		<div class="article-tag">
+		    {% for articletag in article.tag.all  %}
+		    <a href="/blog/tag/{{articletag.tag_name}}">{{ articletag.tag_name }}</a>
+		    {% endfor %}
+		</div>
+		<div class="article-content">
+		    {{ article.content|markdown }}
+		</div>
+
+		<div class="article-other">
+		    {{ article.date|date:"F j, Y" }}
+		</div>
+	</div>
+</div>
 {% endblock %}

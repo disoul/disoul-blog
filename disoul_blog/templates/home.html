@@ -12,7 +12,7 @@
 		</div>
 		<div class="article-tag">
 		    {% for articletag in article.tag.all %}
-		    <a href="#">{{ articletag.tag_name }}</a>
+		    <a href="/blog/tag/{{ articletag.tag_name }}">{{ articletag.tag_name }}</a>
 		    {% endfor %}
 		</div>
 		<div class="article-content">

@@ -19,7 +19,7 @@
 	{% for article in articles %}
 	<div class="article_list">
 	    <div class="titleblock">
-	        <p>{{ article.title }}</p>
+		    <a href="/blog/article/{{ article.title }}">{{ article.title }}</a>
 	    </div>
 	    <div class="otherblock">
 	        <p>{{ article.date|date:"F j, Y" }}</p>
