@@ -1,0 +1,27 @@
+.codehilite {
+    background-color: $low-white;
+    padding: .2em;
+    border: 15px solid $low-white;
+    border-radius: 15px;
+    code {
+        font-family: "Source Code Pro Light","Spurce Code Pro","Arial";
+        font-size: 1.2em;
+    }   
+}
+
+.article-content {
+    hr {
+        margin-top: .5em;
+        margin-bottom: .5em;
+    }   
+    ul {
+        border-left: .4em solid $light-blue-200;
+        padding-left: .4em;
+        li {
+            list-style-type: none;
+            margin-top: .4em;
+            margin-bottom: .4em;
+        }
+    }   
+}
+

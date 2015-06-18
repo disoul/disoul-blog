@@ -15,10 +15,10 @@ def home(request):
     return HttpResponse(homepage.render(context))
 
 
-def tag(request,offset):
+def tag(request,tag_get):
     tagpage = get_template('tag.html')
     try:
-        tag_obj = ArticleTags.objects.get(tag_name=offset)
+        tag_obj = ArticleTags.objects.get(tag_name=tag_get)
     except ArticleTags.DoesNotExist:
         raise Http404()
     else:
@@ -27,3 +27,14 @@ def tag(request,offset):
                        'tagname':tag_obj.tag_name,
         })
     return HttpResponse(tagpage.render(context))
+
+
+def article(request,article_get):
+    articlepage = get_template('article.html')
+    try:
+        article_obj = Article.objects.get(title = article_get)
+    except Article.DoesNotExist:
+        raise Http404()
+    else:
+        context = Context({'article':article_obj,})
+    return HttpResponse(articlepage.render(context))
