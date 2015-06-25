@@ -9,5 +9,6 @@ class Article(models.Model):
     tag = models.ManyToManyField(ArticleTags)
     content = models.TextField()
     date = models.DateTimeField(auto_now=True)
+    preview_line = models.IntegerField()
     class Meta():
         ordering = ['-date']

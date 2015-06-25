@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	{% block staticfiles %}
 	{% load staticfiles %}
+	<script type="text/javascript" src="{% static "js/jquery-1.11.3.min.js" %}"></script>
+	{% block staticfiles %}
 	<link rel="stylesheet" href="{% static "css/code.css" %}" >
 	<link rel="stylesheet" href="{% static "css/index.css" %}" >
 	<link rel="stylesheet" href="{% static "css/font-awesome-4.3.0/css/font-awesome.min.css" %}" >
 	<script type="text/javascript" src="{% static "js/index.js" %}"></script>
 	{% endblock %}
-	<script type="text/javascript" src="{% static "js/jquery-1.11.3.min.js" %}"></script>
 	<script type="text/javascript" src="{% static "js/base.js" %}"></script>
 	{% block title %}
 	<title>DiSoul's Blog</title>

@@ -1,0 +1,49 @@
+使用cocos2dx-x3.0的物理引擎实现碰撞检测
+cocos2dx
+前几天帮人写了一个小游戏因为传统rect碰撞检测写起来太麻烦于是研究了下自带的物理引擎碰撞检测  
+
+#首先创建物理世界
+
+在.h文件添加如下代码  
+
+```c++
+void setPhyWorld(PhysicsWorld* world){m_world = world;}
+private:
+    PhysicsWorld* m_world;
+```
+
+其中第一行中可以添加代码来规定物理世界的一些属性  
+如 重力  
+
+```c++
+m_world->setGravity(Vec2(0,0)); //取消重力
+```
+@@
+-----------------------------
+
+在.cpp文件添加如下代码  
+
+```c++
+#include "HelloWorldScene.h"
+
+Scene* HelloWorld::createScene()
+{
+    auto scene = Scene::createWithPhysics();
+    scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);//开启DEBUG模式，会绘制模型边缘关节等
+    auto layer = HelloWorld::create();
+    layer->setPhyWorld(scene->getPhysicsWorld());
+    scene->addChild(layer);
+    return scene;   
+}
+bool HelloWorld::init()
+{
+    if ( !Layer::init() )
+    {
+        return false;
+    }
+    return true;
+}
+```
+
+通过createWithPhysics()方法创建一个带有物理效果的Scene，然后将需要添加物理效果的层加入其中  
+

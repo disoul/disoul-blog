@@ -51,6 +51,13 @@ $mid-white: #C2C0C0;
 			margin-top:.5em;
 			overflow: hidden;
 			white-space: nowrap;
+			a {
+				text-decoration: none;
+				color: $mid-black;
+				&:hover {
+					color: black;
+				}
+			}
 		}
 		li:hover {
 			background-color: black;

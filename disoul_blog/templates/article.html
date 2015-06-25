@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block staticfiles %}
-        {% load staticfiles %}
+{% load staticfiles %}
         <link rel="stylesheet" href="{% static "css/code.css" %}" >
         <link rel="stylesheet" href="{% static "css/article.css" %}" >
         <link rel="stylesheet" href="{% static "css/font-awesome-4.3.0/css/font-awesome.min.css" %}" >
@@ -17,7 +17,7 @@
 <div class="article_block">
 	<div class="article">
 		<div class="article-title">
-		    {{ article.title }}
+		     <a href="/blog/article/{{ article.title }}">{{ article.title }}</a>
 		</div>
 		<div class="article-tag">
 		    {% for articletag in article.tag.all  %}

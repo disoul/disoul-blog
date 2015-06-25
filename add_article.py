@@ -38,7 +38,12 @@ def update_articles(path):
     article_file.close()
     article_title = article[0][:-1]
     article_content = ''
-    for content in article[2:]:
+    preview_index = 1
+
+    for index,content in enumerate(article[2:]):
+        if content[0:2] == '@@':
+            preview_index = index
+            content = content[2:]
         article_content = article_content + content
 
     tag_list = article[1].split(' ')
@@ -47,11 +52,12 @@ def update_articles(path):
     try:
         article_obj = Article.objects.get(title=article_title)
     except Article.DoesNotExist:
-        article_obj = Article.objects.create(title=article_title,content=article_content)
+        article_obj = Article.objects.create(title=article_title,content=article_content,preview_line=preview_index)
     else:
         isupdate = raw_input('update article:'+article_title+'y/n?')
         if isupdate == 'y':
             article_obj.content = article_content
+            article_obj.preview_line = preview_index
             article_obj.save()
 
     for tag_obj in article_tag:

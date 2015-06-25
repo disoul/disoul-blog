@@ -6,3 +6,21 @@ $tag-bg-color: #D7D7D7;
 	justify-content: space-around;
 	align-items: flex-start;
 }
+
+.content-other {
+	display: flex;
+	flex-direction: column;
+	p {
+		text-align: center;
+	}
+	a {
+		text-decoration: none;
+		color: $light-blue-400;
+		text-align: center;
+		&:hover
+		{
+	    	font-weight: bold;
+			color: $light-blue-600;
+		}
+	}
+}

@@ -8,6 +8,7 @@ def home(request):
     homepage = get_template('home.html')
     tag_objs = ArticleTags.objects.all()
     article_objs = Article.objects.all()
+
     context = Context({
               'tags':tag_objs,
               'articles':article_objs,
