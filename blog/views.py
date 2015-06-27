@@ -2,16 +2,25 @@ from django.shortcuts import render
 from django.template.loader import get_template
 from django.template import Context
 from django.http import HttpResponse,Http404
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from blog.models import ArticleTags,Article
 
 def home(request):
     homepage = get_template('home.html')
     tag_objs = ArticleTags.objects.all()
-    article_objs = Article.objects.all()
+    article_objs = Paginator(Article.objects.all(),2)
+
+    pagenum = request.GET.get('page')
+    try:
+        contacts = article_objs.page(pagenum)
+    except PageNotAnInteger:
+        contacts = article_objs.page(1)
+    except EmptyPage:
+        contacts = article_objs.page(paginator.num_pages)
 
     context = Context({
               'tags':tag_objs,
-              'articles':article_objs,
+              'articles':contacts,
         })
     return HttpResponse(homepage.render(context))
 

@@ -51,6 +51,9 @@ $mid-white: #C2C0C0;
 			margin-top:.5em;
 			overflow: hidden;
 			white-space: nowrap;
+			&:hover {
+				background-color: $light-blue-50;
+			}
 			a {
 				text-decoration: none;
 				color: $mid-black;
@@ -58,9 +61,6 @@ $mid-white: #C2C0C0;
 					color: black;
 				}
 			}
-		}
-		li:hover {
-			background-color: black;
 		}
 	}
 }

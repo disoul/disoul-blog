@@ -2,8 +2,9 @@ $article-bg-color: #E7E7E7;
 $tag-bg-color: #D7D7D7;
 .main-content {
 	display: flex;
-	justify-content: space-around;
-	align-items: flex-start;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
 
 .content-other {
@@ -21,5 +22,20 @@ $tag-bg-color: #D7D7D7;
 	    	font-weight: bold;
 			color: $light-blue-600;
 		}
+	}
+}
+
+.pagination {
+	margin-bottom: 2em;
+	a {
+		text-decoration: none;
+		color: $light-blue-200;
+		&:hover {
+			color: $light-blue-400;
+			font-weight: bold;
+		}
+	}
+	.current {
+		color: $light-blue-400;
 	}
 }
