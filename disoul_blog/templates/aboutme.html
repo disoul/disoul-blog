@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block staticfiles %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static "css/aboutme.css"%}">
+{% endblock %}
+{% block title %}
+<title>About me</title>
+{% endblock %}
+
+{% block main-content %}
+<div class="main-content">
+	<div class="head-block">
+		<div class="iron-block">
+		    <div class="iron"></div>
+		</div>
+		<div class="name-block"></div>
+		<div class="about-block"></div>
+	</div>
+</div>
+{% endblock %}
+

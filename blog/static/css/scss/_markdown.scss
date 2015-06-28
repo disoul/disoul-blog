@@ -24,5 +24,11 @@
             margin-bottom: .4em;
         }
     }   
+	p {
+		code {
+			font-family: "Source Code Pro Light","Spurce Code Pro","Arial";
+			background-color: $low-white;	
+		}
+	}
 }
 

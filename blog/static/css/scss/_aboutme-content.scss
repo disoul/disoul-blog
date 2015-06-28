@@ -1,0 +1,18 @@
+.main-content {
+	display: flex;
+	flex-direction: column;
+	width: 80em;
+	height: 20em;
+}
+
+.head-block {
+	display: flex;
+	.iron-block{
+		flex:1
+		.iron {
+			width: 15em;
+			height: 15em;
+			
+		}
+	}
+}
