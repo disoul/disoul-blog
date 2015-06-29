@@ -48,3 +48,8 @@ def article(request,article_get):
     else:
         context = Context({'article':article_obj,})
     return HttpResponse(articlepage.render(context))
+
+
+def aboutme(request):
+    aboutmepage = get_template('aboutme.html')
+    return HttpResponse(aboutmepage.render(Context({})))

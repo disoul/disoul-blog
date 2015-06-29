@@ -1,18 +1,38 @@
 .main-content {
 	display: flex;
 	flex-direction: column;
-	width: 80em;
-	height: 20em;
+	align-items: center;
+	width: 100%;
+	.mid-content {
+		width: 80em;
+	}
 }
 
 .head-block {
 	display: flex;
-	.iron-block{
-		flex:1
-		.iron {
+	margin-top: 1em;
+	.icon-block{
+		flex:1;
+		border-right: 1px solid $low-white;
+		.icon {
 			width: 15em;
 			height: 15em;
-			
+			margin: 2em auto 2em auto;
+			border: 5px solid $red-a100;
+			border-radius: 15em;
+            background-image: url('../image/disoul-icon.jpeg');		
+			background-size: cover;
+			transition: border-width 0.5s;
+			&:hover {
+				border-width: 10px;
+			}
 		}
+	}
+	.name-block {
+		flex: 1;
+		border-right: 1px solid $low-white;
+	}
+    .about-block {
+		flex: 1;
 	}
 }
