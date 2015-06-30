@@ -12,6 +12,7 @@ $mid-white: #C2C0C0;
     border:10px solid $black-200;
     border-radius: 10px;
     box-shadow: 0 0 7px $mid-black;
+	z-index: 100;
 	i {
 		float: right;
 		margin-right: 20px;
@@ -33,7 +34,6 @@ $mid-white: #C2C0C0;
 		    font-size: 3em;
 			display: block;
 			padding-bottom: .2em;
-			border-bottom: 1px solid $mid-white;
 			overflow: hidden;
 			white-space: nowrap;
 		}
@@ -42,15 +42,21 @@ $mid-white: #C2C0C0;
 			display: flex;
 			flex-direction: column;
 			padding-left: 0;
+			overflow: hidden;
 		}
 		li {
 			padding-left: .5em;
-			font-size: 1.2em;
+			font-size: 1.5em;
 			display: block;
 			color: black;
-			margin-top:.5em;
+			padding-top:.5em;
+			padding-bottom: .5em;
 			overflow: hidden;
 			white-space: nowrap;
+			position: relative;
+			&:nth-child(odd) {
+				background-color: $min-white;
+			}
 			&:hover {
 				background-color: $light-blue-50;
 			}
@@ -59,6 +65,19 @@ $mid-white: #C2C0C0;
 				color: $mid-black;
 				&:hover {
 					color: black;
+				}
+			}
+			.tag-counts {
+				display: inline-block;
+				width: 1.5em;
+				height: 1.5em;
+				border: 1px solid $low-black;
+				border-radius: 1.5em;
+				position: absolute;
+				right: 1em;
+				background-color: $low-black;
+				p {
+					font-size: .9em;
 				}
 			}
 		}

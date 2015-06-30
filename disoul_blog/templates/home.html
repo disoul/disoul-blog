@@ -60,6 +60,7 @@
 	        {% for tag in tags %}
     	    <li>
 			    <a href="/blog/tag/{{ tag.tag_name }}">{{ tag.tag_name}}</a>
+				<div class="tag-counts"><p>{{ tag.article_set.all.count }}</p></div>
 		    </li>
 	        {% endfor%}
 	    </ul>	    
