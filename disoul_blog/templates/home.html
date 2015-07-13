@@ -8,18 +8,18 @@
 	{% for article in articles %}
 	<div class="article">
 		<div class="article-title">
-			<a href="/blog/article/{{ article.title }}">{{ article.title }}</a>
+			<a href="article/{{ article.title }}">{{ article.title }}</a>
 		</div>
 		<div class="article-tag">
 		    {% for articletag in article.tag.all %}
-		    <a href="/blog/tag/{{ articletag.tag_name }}">{{ articletag.tag_name }}</a>
+		    <a href="tag/{{ articletag.tag_name }}">{{ articletag.tag_name }}</a>
 		    {% endfor %}
 		</div>
 		<div class="article-content">
 			{{ article.content|preview:article.preview_line|markdown }}
 			<div class="content-other">
 				<p>...</p><br>
-				<a class="full-article" href="/blog/article/{{article.title}}">Read More</a>
+				<a class="full-article" href="article/{{article.title}}">Read More</a>
 			</div>
 		</div>
 		<div class="article-other">
@@ -59,7 +59,7 @@
 	    <ul>
 	        {% for tag in tags %}
     	    <li>
-			    <a href="/blog/tag/{{ tag.tag_name }}">{{ tag.tag_name}}</a>
+			    <a href="tag/{{ tag.tag_name }}">{{ tag.tag_name}}</a>
 				<div class="tag-counts"><p>{{ tag.article_set.all.count }}</p></div>
 		    </li>
 	        {% endfor%}
