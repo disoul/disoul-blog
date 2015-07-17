@@ -12,3 +12,8 @@ class Article(models.Model):
     preview_line = models.IntegerField()
     class Meta():
         ordering = ['-date']
+
+
+class update_timetuple(models.Model):
+    time = models.IntegerField()
+    update_type = models.CharField(max_length=100)

@@ -3,18 +3,24 @@ import os
 import sys
 from django.core.wsgi import get_wsgi_application
 from blog.models import *
+import time
 
-ARTICLE_DIR = '/home/disoul/Works/disoul_blog/blog/articles'
+ARTICLE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)),'/blog/articles')
 
 def getFile():
     file_list = []
+    new_timetuple = 0
+    timetuple = update_timetuple.objects.get(update_type='article')
 
     for dirpath,dirnames,filenames in os.walk(ARTICLE_DIR):
         for filename in filenames:
-            if filename[0] == '*':
-                os.rename(dirpath+'/'+filename,dirpath+'/'+filename[1:])
-                file_list.append(dirpath+'/'+filename[1:])
-
+            filetime =  os.stat(dirpath+'/'+filename).st_mtime
+            if filetime > timetuple.time
+                if filetime > new_timetuple:
+                    new_timetuple = filetime
+                file_list.append(dirpath+'/'+filename)
+    
+    timetuple.time = new_timetuple
     return file_list
 
 
