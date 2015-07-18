@@ -5,8 +5,7 @@ from django.core.wsgi import get_wsgi_application
 from blog.models import *
 import time
 
-ARTICLE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)),'/blog/articles')
-
+ARTICLE_DIR = os.path.join(os.path.dirname(__file__),'blog/articles')
 def getFile():
     file_list = []
     new_timetuple = 0
@@ -14,13 +13,16 @@ def getFile():
 
     for dirpath,dirnames,filenames in os.walk(ARTICLE_DIR):
         for filename in filenames:
-            filetime =  os.stat(dirpath+'/'+filename).st_mtime
-            if filetime > timetuple.time
+            filetime =  os.stat(os.path.join(dirpath,filename)).st_mtime
+            print (filename,filetime)
+            if filetime > timetuple.time:
                 if filetime > new_timetuple:
                     new_timetuple = filetime
-                file_list.append(dirpath+'/'+filename)
+                file_list.append(os.path.join(dirpath,filename))
+                print (os.path.join(dirpath,filename))
     
     timetuple.time = new_timetuple
+    timetuple.save()
     return file_list
 
 
@@ -64,11 +66,13 @@ def update_articles(path):
         isupdate = raw_input('update article:'+article_title+'y/n?')
         if isupdate == 'y':
             article_obj.content = article_content
+            print article_obj.content
             article_obj.preview_line = preview_index
             article_obj.save()
 
     for tag_obj in article_tag:
         article_obj.tag.add(tag_obj)
+        print tag_obj.tag_name
 
 
 def main():
@@ -81,4 +85,4 @@ def main():
 if __name__ == '__main__':
     os.environ['DJANGO_SETTINGS_MODULE'] = 'disoul_blog.settings'
     application = get_wsgi_application() 
-    main()
+    sys.exit(main())

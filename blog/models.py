@@ -15,5 +15,5 @@ class Article(models.Model):
 
 
 class update_timetuple(models.Model):
-    time = models.IntegerField()
+    time = models.FloatField()
     update_type = models.CharField(max_length=100)
