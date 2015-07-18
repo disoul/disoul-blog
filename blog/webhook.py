@@ -1,19 +1,21 @@
 from django.http import HttpResponse,HttpResponseForbidden,HttpResponseBadRequest
+from django.views.decorators.csrf import csrf_exempt
 import shlex,subprocess
 
-
+@csrf_exempt
 def updatehook(request):
-    webhook_pw = '32d64b959c130e7eac89f643d632578'
+    return HttpResponse("ok")
+"""    webhook_pw = '32d64b959c130e7eac89f643d632578'
     if request.method == 'POST':
         post = request.POST
-        if post[hook][config][secret] != webhook_pw:
+        if post['hook']['config']['secret'] == webhook_pw:
             #update_work()
             return HttpResponse("ok")
         else:
             return HttpResponseForbidden('error secret')
     else:
         return HttpResponseBadRequest('bad request')
-
+"""
 
 def update_work():
     git = subprocess.Popen(shlex.split("git pull origin master"))
