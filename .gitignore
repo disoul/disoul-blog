@@ -62,7 +62,7 @@ docs/_build/
 target/
 
 # Database
-#TODO *.sqlite3
+*.sqlite3
 
 # Vim
 *.swp
