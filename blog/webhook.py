@@ -4,6 +4,8 @@ import shlex,subprocess
 
 @csrf_exempt
 def updatehook(request):
+    if request.META['HTTP_USER_AGENT'] != 'GitHub-Hookshot/f5d5ca1':
+        return HttpResponseForbidden('error user agent')
     if request.method == 'POST':
         post = request.POST
         if post['repository']['name'] == 'disoul-blog' and post['commits']['committer']['name'] == 'disoul':
