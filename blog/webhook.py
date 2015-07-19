@@ -4,18 +4,16 @@ import shlex,subprocess
 
 @csrf_exempt
 def updatehook(request):
-    return HttpResponse("ok")
-"""    webhook_pw = '32d64b959c130e7eac89f643d632578'
     if request.method == 'POST':
         post = request.POST
-        if post['hook']['config']['secret'] == webhook_pw:
-            #update_work()
+        if post['repository']['name'] == 'disoul-blog' and post['commits']['committer']['name'] == 'disoul':
+            update_work()
             return HttpResponse("ok")
         else:
             return HttpResponseForbidden('error secret')
     else:
         return HttpResponseBadRequest('bad request')
-"""
+
 
 def update_work():
     git = subprocess.Popen(shlex.split("git pull origin master"))
