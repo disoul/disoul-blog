@@ -18,6 +18,7 @@ def getFile():
                 if filetime > new_timetuple:
                     new_timetuple = filetime
                 file_list.append(os.path.join(dirpath,filename))
+		print os.path.join(dirpath,filename)
     
     timetuple.time = new_timetuple
     timetuple.save()
