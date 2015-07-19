@@ -14,12 +14,10 @@ def getFile():
     for dirpath,dirnames,filenames in os.walk(ARTICLE_DIR):
         for filename in filenames:
             filetime =  os.stat(os.path.join(dirpath,filename)).st_mtime
-            print (filename,filetime)
             if filetime > timetuple.time:
                 if filetime > new_timetuple:
                     new_timetuple = filetime
                 file_list.append(os.path.join(dirpath,filename))
-                print (os.path.join(dirpath,filename))
     
     timetuple.time = new_timetuple
     timetuple.save()
@@ -63,16 +61,12 @@ def update_articles(path):
     except Article.DoesNotExist:
         article_obj = Article.objects.create(title=article_title,content=article_content,preview_line=preview_index)
     else:
-        isupdate = raw_input('update article:'+article_title+'y/n?')
-        if isupdate == 'y':
-            article_obj.content = article_content
-            print article_obj.content
-            article_obj.preview_line = preview_index
-            article_obj.save()
+        article_obj.content = article_content
+        article_obj.preview_line = preview_index
+        article_obj.save()
 
     for tag_obj in article_tag:
         article_obj.tag.add(tag_obj)
-        print tag_obj.tag_name
 
 
 def main():
