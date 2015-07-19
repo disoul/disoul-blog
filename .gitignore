@@ -73,3 +73,6 @@ target/
 # Nginx
 *.ini
 uwsgi_params
+
+#webhook
+webhook.py
