@@ -1,0 +1,13 @@
+总结一下Django利用Webhook来更新文章
+Django 博客搭建
+主要思路是我在自己的电脑上写博，博文（在/blog/articles）push上去之后  
+服务器那边可以自动pull并且执行add_article.py（通过比对articles文件夹类文件修改时间和最近保存的时间戳进行更新）
+
+为了实现这个想法，主要使用的有
+
+* simplyjson（处理github端的json文件）
+* celery （任务队列，处理我的pull和更新文章）
+* redis (作为celery的broker)
+
+其实也就这么简单，我自己都不知到我为啥弄好久，我是鶸比
+@@
