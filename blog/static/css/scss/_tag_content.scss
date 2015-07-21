@@ -5,14 +5,14 @@
 }
 
 .tagblock {
-	width: 80em;
+	width: 980px;
 	margin-bottom: 1em;
 	margin-top: 1em;
 	display: flex;
 	flex-direction: column;
     .tagname {
 		display: block;
-		font-size: 3.5em;
+		font-size: 45px;
 		border-left: .2em solid $light-blue-400;
         color: $light-blue-400;
 		padding-left: .5em;
@@ -24,7 +24,7 @@
 	margin-top: 1em;
 	border-top: 1px solid $light-blue-200;
 	.titleblock {
-		font-size: 2em;
+		font-size: 30px;
         cursor: pointer;
 		display: inline-block;
 		a {

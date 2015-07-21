@@ -17,9 +17,20 @@
 
 .title{
     flex: 6;
-	position: relative;
 	left: -14em;
 	top: -3em;
+	width: 980px;
+	margin: auto;
+	padding-top: 20px;
+	a {
+		text-decoration: none;
+		font-size: 60px;
+		color: white;
+	    cursor: pointer;
+	    &:hover {
+			color: $light-blue-600;
+		}
+	}
 }
 
 .navigation-bar {
