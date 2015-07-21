@@ -79,3 +79,6 @@ uwsgi_params
 
 #webhook
 webhook.py
+
+# Nohup
+nohup.out
