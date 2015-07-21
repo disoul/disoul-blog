@@ -70,7 +70,10 @@ target/
 # Nginx
 *.conf
 
-# Nginx
+# StaticFiles
+/static/
+
+# Uwsgi
 *.ini
 uwsgi_params
 
