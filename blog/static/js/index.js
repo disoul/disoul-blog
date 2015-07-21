@@ -14,7 +14,4 @@ $(document).ready(function(){
 						leftflag = -leftflag;
 			 }
 		});
-		$("#github").click(function(){
-				window.location.href="http://github.com/disoul/disoul-blog";
-		});
 });
