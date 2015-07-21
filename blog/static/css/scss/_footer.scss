@@ -14,17 +14,23 @@ body {
 .site-footer {
 	width: 100%;
 	background-color: $blue-700;
-	height: 5em;
+	height: 50px;
 	p {
 		text-align: center;
 		font-size: 1.5em;
 		color: white;
-		padding-top: 1em;
+		padding-top: 10px;
 		letter-spacing: .1em;
 		i {
 			margin-left: .5em;
 			margin-right: .5em;
 			cursor: pointer;
+		}
+		a {
+			color: white;
+			&:hover {
+				color: $light-blue-400;
+			}
 		}
 	}
 }

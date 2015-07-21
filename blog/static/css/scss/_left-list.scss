@@ -20,18 +20,24 @@ $mid-white: #C2C0C0;
 		bottom: 8px;
 	}
 }
-
+.left-list-mask {
+	overflow: hidden;
+	box-shadow: 3px 3px 3px $light-blue-100;
+	width: 0;
+    order: 1;
+	z-index: 1;
+}
 
 .left-list {
 	background-color: white;
 	border-right: 1px solid $mid-white;
-    order: 1;
-	width: 0px;
+	width: 120px;
+	height: 100%;
 	.tag-list {
 		color: $light-blue-600;
 		p {
 		    text-align: center;
-		    font-size: 3em;
+		    font-size: 25px;
 			display: block;
 			padding-bottom: .2em;
 			overflow: hidden;
@@ -46,7 +52,7 @@ $mid-white: #C2C0C0;
 		}
 		li {
 			padding-left: .5em;
-			font-size: 1.5em;
+			font-size: 17px;
 			display: block;
 			color: black;
 			padding-top:.5em;
@@ -74,7 +80,7 @@ $mid-white: #C2C0C0;
 				border: 1px solid $low-black;
 				border-radius: 1.5em;
 				position: absolute;
-				right: 1em;
+				right: 2px;
 				background-color: $low-black;
 				p {
 					font-size: .9em;

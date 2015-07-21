@@ -10,7 +10,7 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-	height: 250px;
+	height: 150px;
 	background-color: $light-blue-400;
 	overflow: hidden;
 }
@@ -30,13 +30,15 @@
 		flex-direction: row;
 		flex-wrap: nowrap;
 		justify-content: flex-end;
-		height: 100%;
+		width: 980px;
+		padding-left: 0;
+		margin: auto;
 		li {
 			list-style-type: none;
 			a {
 				color: black;
 				display: inline-block;
-				width: 7em;
+				width: 80px;
 				height: 100%;
 				margin-bottom: 6px;
 				margin-top: 6px;
@@ -45,7 +47,7 @@
 					decoration: none;
 				}
 				font: {
-					size: 20px;
+					size: 17px;
 			}
 			}
 			i {
