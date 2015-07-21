@@ -17,10 +17,12 @@ def getFile():
             if filetime > timetuple.time:
                 if filetime > new_timetuple:
                     new_timetuple = filetime
+	            print 'new_time:',new_timetuple
                 file_list.append(os.path.join(dirpath,filename))
 		print os.path.join(dirpath,filename)
     
     timetuple.time = new_timetuple
+    print 'timetuple:',timetuple.time
     timetuple.save()
     return file_list
 
