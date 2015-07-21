@@ -51,6 +51,12 @@ INSTALLED_APPS = (
 )
 ```
 
+之后更新一波数据库，因为我django是1.8，所以执行
+
+```shell
+python manage.py migrate
+```
+
 现在就可以在django里注册我们的task了  
 在app目录下创建tasks.py
 
