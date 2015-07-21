@@ -52,20 +52,21 @@
     <div class="left-list-control">
         <i class="fa fa-angle-double-right fa-3x"></i>
     </div>
-
-    <div class="left-list">
-	<div class="tag-list">
-	    <p>Tag list</p>
-	    <ul>
-	        {% for tag in tags %}
-    	    <li>
-			    <a href="tag/{{ tag.tag_name }}">{{ tag.tag_name}}</a>
-				<div class="tag-counts"><p>{{ tag.article_set.all.count }}</p></div>
-		    </li>
-	        {% endfor%}
-	    </ul>	    
+	<div class="left-list-mask">
+		<div class="left-list">
+			<div class="tag-list">
+				<p>Tag list</p>
+				<ul>
+					{% for tag in tags %}
+					<li>
+						<a href="tag/{{ tag.tag_name }}">{{ tag.tag_name}}</a>
+						<div class="tag-counts"><p>{{ tag.article_set.all.count }}</p></div>
+					</li>
+					{% endfor%}
+				</ul>	    
+			</div>
+			<div class="date-list"></div>
+		</div>
 	</div>
-    	<div class="date-list"></div>
-    </div>
 {% endblock %}
 

@@ -17,11 +17,11 @@
 <div class="article_block">
 	<div class="article">
 		<div class="article-title">
-		     <a href="article/{{ article.title }}">{{ article.title }}</a>
+		     <a href="">{{ article.title }}</a>
 		</div>
 		<div class="article-tag">
 		    {% for articletag in article.tag.all  %}
-		    <a href="tag/{{articletag.tag_name}}">{{ articletag.tag_name }}</a>
+		    <a href="{{articletag.tag_name}}">{{ articletag.tag_name }}</a>
 		    {% endfor %}
 		</div>
 		<div class="article-content">
