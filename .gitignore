@@ -86,3 +86,4 @@ nohup.out
 # bower+grunt
 /bower_components/
 bower.json
+node_modules/
