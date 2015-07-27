@@ -28,5 +28,22 @@
 			background-color: $low-white;	
 		}
 	}
+	h1 {
+		color: $light-blue-400;
+		margin-bottom: 20px;
+		border-bottom: 1px solid $low-white;
+	}
+	h2 {
+		color: $light-blue-200;
+		margin-bottom: 10px;
+	}
+	a {
+		text-decoration: none;
+		color: black;
+		cursor: pointer;
+		&:hover {
+			color: $light-blue-200;
+		}
+	}
 }
 
