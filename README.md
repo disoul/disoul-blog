@@ -5,5 +5,5 @@
 
 * 完善页面
 * 适配移动端
-* Bower+Grunt
+* Bower+Grunt [COMPLETE]
 * ...
