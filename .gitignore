@@ -82,3 +82,7 @@ webhook.py
 
 # Nohup
 nohup.out
+
+# bower+grunt
+/bower_components/
+bower.json
