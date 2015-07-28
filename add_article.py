@@ -20,10 +20,10 @@ def getFile():
 	            print 'new_time:',new_timetuple
                 file_list.append(os.path.join(dirpath,filename))
 		print os.path.join(dirpath,filename)
-    
-    timetuple.time = new_timetuple
-    print 'timetuple:',timetuple.time
-    timetuple.save()
+    if new_timetuple != 0:    
+        timetuple.time = new_timetuple
+        print 'timetuple:',timetuple.time
+        timetuple.save()
     return file_list
 
 
