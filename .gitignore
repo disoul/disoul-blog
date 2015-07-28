@@ -87,3 +87,6 @@ nohup.out
 /bower_components/
 bower.json
 node_modules/
+
+# sass
+*.map
