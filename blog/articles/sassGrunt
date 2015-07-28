@@ -5,6 +5,7 @@ Grunt下自动编译Scss
 于是现在给博客弄了一个自动编译scss的buff，这样ignore就顺理成章了  
   
 为了实现这个效果，Grunt下需要2个插件
+
 * sass
 * watch
 
