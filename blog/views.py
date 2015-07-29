@@ -8,7 +8,7 @@ from blog.models import ArticleTags,Article
 def home(request):
     homepage = get_template('home.html')
     tag_objs = ArticleTags.objects.all()
-    article_objs = Paginator(Article.objects.all(),2)
+    article_objs = Paginator(Article.objects.all(),4)
 
     pagenum = request.GET.get('page')
     try:
