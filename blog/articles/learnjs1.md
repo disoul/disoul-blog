@@ -13,7 +13,7 @@ function isNimble(){ return true; }
 ```
 这里`isNimble`定义在第4行，但第3行依然返回true  
 所以函数可以声明在任何位置，在运行之前js都会升级这些函数的声明
-      
+@@      
 下一个  
 
 ```javascript
