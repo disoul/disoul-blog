@@ -1,0 +1,342 @@
+[2015-07-29 17:35:38,363: WARNING/MainProcess] /usr/disoul/works/uwsgi-blog/local/lib/python2.7/site-packages/celery/apps/worker.py:161: CDeprecationWarning: 
+Starting from version 3.2 Celery will refuse to accept pickle by default.
+
+The pickle serializer is a security concern as it may give attackers
+the ability to execute any command.  It's important to secure
+your broker from unauthorized access when using pickle, so we think
+that enabling pickle should require a deliberate action and not be
+the default choice.
+
+If you depend on pickle then you should set a setting to disable this
+warning and to be sure that everything will continue working
+when you upgrade to Celery 3.2::
+
+    CELERY_ACCEPT_CONTENT = ['pickle', 'json', 'msgpack', 'yaml']
+
+You must only enable the serializers that you will actually use.
+
+
+  warnings.warn(CDeprecationWarning(W_PICKLE_DEPRECATED))
+
+[2015-07-29 17:35:38,387: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2015-07-29 17:35:38,395: INFO/MainProcess] mingle: searching for neighbors
+[2015-07-29 17:35:39,400: INFO/MainProcess] mingle: all alone
+[2015-07-29 17:35:39,409: WARNING/MainProcess] celery@iZ23wxj9eaeZ ready.
+
+Restarting celery worker (manage.py celery worker --loglevel=info)
+ 
+ -------------- celery@iZ23wxj9eaeZ v3.1.18 (Cipater)
+---- **** ----- 
+--- * ***  * -- Linux-3.13.0-32-generic-x86_64-with-Ubuntu-14.04-trusty
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         default:0x7f012b8550d0 (djcelery.loaders.DjangoLoader)
+- ** ---------- .> transport:   redis://localhost:6379/0
+- ** ---------- .> results:     database
+- *** --- * --- .> concurrency: 1 (prefork)
+-- ******* ---- 
+--- ***** ----- [queues]
+ -------------- .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . blog.tasks.update_work
+
+[2015-07-29 17:35:41,167: WARNING/MainProcess] /usr/disoul/works/uwsgi-blog/local/lib/python2.7/site-packages/celery/apps/worker.py:161: CDeprecationWarning: 
+Starting from version 3.2 Celery will refuse to accept pickle by default.
+
+The pickle serializer is a security concern as it may give attackers
+the ability to execute any command.  It's important to secure
+your broker from unauthorized access when using pickle, so we think
+that enabling pickle should require a deliberate action and not be
+the default choice.
+
+If you depend on pickle then you should set a setting to disable this
+warning and to be sure that everything will continue working
+when you upgrade to Celery 3.2::
+
+    CELERY_ACCEPT_CONTENT = ['pickle', 'json', 'msgpack', 'yaml']
+
+You must only enable the serializers that you will actually use.
+
+
+  warnings.warn(CDeprecationWarning(W_PICKLE_DEPRECATED))
+
+[2015-07-29 17:35:41,190: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2015-07-29 17:35:41,197: INFO/MainProcess] mingle: searching for neighbors
+[2015-07-29 17:35:42,202: INFO/MainProcess] mingle: all alone
+[2015-07-29 17:35:42,210: WARNING/MainProcess] celery@iZ23wxj9eaeZ ready.
+[2015-07-29 17:41:48,848: INFO/MainProcess] Received task: blog.tasks.update_work[1cc5eb5e-7eba-4abe-9d19-4a468caad8ae]
+Restart uwsgi service [OK]
+[uWSGI] getting INI configuration from /usr/disoul/works/disoul-blog/disoul_blog_uwsgi.ini
+*** Starting uWSGI 2.0.10 (64bit) on [Wed Jul 29 17:41:48 2015] ***
+compiled with version: 4.8.2 on 01 July 2015 14:20:14
+os: Linux-3.13.0-32-generic #57-Ubuntu SMP Tue Jul 15 03:51:08 UTC 2014
+nodename: iZ23wxj9eaeZ
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /usr/disoul/works/disoul-blog
+detected binary path: /usr/disoul/works/uwsgi-blog/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /usr/disoul/works/disoul-blog
+your processes number limit is 7770
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /usr/disoul/works/disoul-blog/disoul.sock fd 6
+Python version: 2.7.6 (default, Mar 22 2014, 23:03:41)  [GCC 4.8.2]
+Set PythonHome to /usr/disoul/works/uwsgi-blog
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0xb94b50
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 800360 bytes (781 KB) for 10 cores
+*** Operational MODE: preforking ***
+
+You have requested to collect static files at the destination
+location as specified in your settings:
+
+    /usr/disoul/works/disoul-blog/static
+
+This will overwrite existing files!
+Are you sure you want to do this?
+
+Type 'yes' to continue, or 'no' to cancel: Traceback (most recent call last):
+  File "/usr/disoul/works/disoul-blog/manage.py", line 10, in <module>
+    execute_from_command_line(sys.argv)
+  File "/usr/disoul/works/uwsgi-blog/local/lib/python2.7/site-packages/django/core/management/__init__.py", line 338, in execute_from_command_line
+    utility.execute()
+  File "/usr/disoul/works/uwsgi-blog/local/lib/python2.7/site-packages/django/core/management/__init__.py", line 330, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/usr/disoul/works/uwsgi-blog/local/lib/python2.7/site-packages/django/core/management/base.py", line 390, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/usr/disoul/works/uwsgi-blog/local/lib/python2.7/site-packages/django/core/management/base.py", line 441, in execute
+    output = self.handle(*args, **options)
+  File "/usr/disoul/works/uwsgi-blog/local/lib/python2.7/site-packages/django/contrib/staticfiles/management/commands/collectstatic.py", line 168, in handle
+    collected = self.collect()
+  File "/usr/disoul/works/uwsgi-blog/local/lib/python2.7/site-packages/django/contrib/staticfiles/management/commands/collectstatic.py", line 97, in collect
+    for finder in get_finders():
+  File "/usr/disoul/works/uwsgi-blog/local/lib/python2.7/site-packages/django/contrib/staticfiles/finders.py", line 264, in get_finders
+    yield get_finder(finder_path)
+  File "/usr/disoul/works/uwsgi-blog/local/lib/python2.7/site-packages/django/utils/lru_cache.py", line 101, in wrapper
+    result = user_function(*args, **kwds)
+  File "/usr/disoul/works/uwsgi-blog/local/lib/python2.7/site-packages/django/contrib/staticfiles/finders.py", line 277, in get_finder
+    return Finder()
+  File "/usr/disoul/works/uwsgi-blog/local/lib/python2.7/site-packages/django/contrib/staticfiles/finders.py", line 66, in __init__
+    "The STATICFILES_DIRS setting should "
+django.core.exceptions.ImproperlyConfigured: The STATICFILES_DIRS setting should not contain the STATIC_ROOT setting
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0xb94b50 pid: 7919 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 7919)
+spawned uWSGI worker 1 (pid: 7948, cores: 1)
+spawned uWSGI worker 2 (pid: 7949, cores: 1)
+spawned uWSGI worker 3 (pid: 7950, cores: 1)
+spawned uWSGI worker 4 (pid: 7951, cores: 1)
+spawned uWSGI worker 5 (pid: 7952, cores: 1)
+spawned uWSGI worker 6 (pid: 7953, cores: 1)
+spawned uWSGI worker 7 (pid: 7954, cores: 1)
+spawned uWSGI worker 8 (pid: 7955, cores: 1)
+spawned uWSGI worker 9 (pid: 7956, cores: 1)
+spawned uWSGI worker 10 (pid: 7957, cores: 1)
+From https://github.com/disoul/disoul-blog
+ * branch            master     -> FETCH_HEAD
+   c85a874..8b60691  master     -> origin/master
+Updating c85a874..8b60691
+Fast-forward
+ blog/articles/myblog1 | 2 +-
+ blog/tasks.py         | 4 +---
+ blog/views.py         | 2 +-
+ 3 files changed, 3 insertions(+), 5 deletions(-)
+[2015-07-29 17:41:52,685: INFO/MainProcess] Task blog.tasks.update_work[1cc5eb5e-7eba-4abe-9d19-4a468caad8ae] succeeded in 3.83600526594s: 1
+[pid: 7957|app: 0|req: 1/1] 45.79.82.119 () {44 vars in 850 bytes} [Wed Jul 29 17:41:52 2015] GET /blog/ => generated 6228 bytes in 94 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 7957|app: 0|req: 2/2] 101.226.168.209 () {40 vars in 659 bytes} [Wed Jul 29 17:42:06 2015] GET /blog/ => generated 6228 bytes in 21 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 7957|app: 0|req: 3/3] 182.118.22.248 () {40 vars in 901 bytes} [Wed Jul 29 17:42:29 2015] GET /article/%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%8BDjango%E5%88%A9%E7%94%A8Webhook%E6%9D%A5%E6%9B%B4%E6%96%B0%E6%96%87%E7%AB%A0 => generated 1036 bytes in 4 msecs (HTTP/1.1 404) 2 headers in 95 bytes (1 switches on core 0)
+[pid: 7957|app: 0|req: 4/4] 182.118.25.209 () {40 vars in 615 bytes} [Wed Jul 29 17:42:57 2015] GET /blog => generated 0 bytes in 1 msecs (HTTP/1.1 301) 3 headers in 137 bytes (1 switches on core 0)
+[pid: 7951|app: 0|req: 1/5] 182.118.25.209 () {40 vars in 617 bytes} [Wed Jul 29 17:42:57 2015] GET /blog/ => generated 6228 bytes in 93 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 7957|app: 0|req: 5/6] 182.118.22.219 () {40 vars in 643 bytes} [Wed Jul 29 17:44:16 2015] GET /blog/aboutme => generated 0 bytes in 1 msecs (HTTP/1.1 301) 3 headers in 145 bytes (1 switches on core 0)
+[pid: 7954|app: 0|req: 1/7] 182.118.22.219 () {40 vars in 645 bytes} [Wed Jul 29 17:44:16 2015] GET /blog/aboutme/ => generated 1575 bytes in 24 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 7957|app: 0|req: 6/8] 45.79.82.119 () {44 vars in 850 bytes} [Wed Jul 29 17:44:31 2015] GET /blog/ => generated 7288 bytes in 24 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+Wed Jul 29 17:44:54 2015 - uWSGI worker 10 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+[2015-07-30 21:47:27,723: INFO/MainProcess] Received task: blog.tasks.update_work[98fc5593-f983-4cc5-9eac-195b833c0dbc]
+Restart uwsgi service [OK]
+[uWSGI] getting INI configuration from /usr/disoul/works/disoul-blog/disoul_blog_uwsgi.ini
+*** Starting uWSGI 2.0.10 (64bit) on [Thu Jul 30 21:47:27 2015] ***
+compiled with version: 4.8.2 on 01 July 2015 14:20:14
+os: Linux-3.13.0-32-generic #57-Ubuntu SMP Tue Jul 15 03:51:08 UTC 2014
+nodename: iZ23wxj9eaeZ
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /usr/disoul/works/disoul-blog
+detected binary path: /usr/disoul/works/uwsgi-blog/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /usr/disoul/works/disoul-blog
+your processes number limit is 7770
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /usr/disoul/works/disoul-blog/disoul.sock fd 6
+Python version: 2.7.6 (default, Mar 22 2014, 23:03:41)  [GCC 4.8.2]
+Set PythonHome to /usr/disoul/works/uwsgi-blog
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x2344b50
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 800360 bytes (781 KB) for 10 cores
+*** Operational MODE: preforking ***
+
+You have requested to collect static files at the destination
+location as specified in your settings:
+
+    /usr/disoul/works/disoul-blog/static
+
+This will overwrite existing files!
+Are you sure you want to do this?
+
+Type 'yes' to continue, or 'no' to cancel: Traceback (most recent call last):
+  File "/usr/disoul/works/disoul-blog/manage.py", line 10, in <module>
+    execute_from_command_line(sys.argv)
+  File "/usr/disoul/works/uwsgi-blog/local/lib/python2.7/site-packages/django/core/management/__init__.py", line 338, in execute_from_command_line
+    utility.execute()
+  File "/usr/disoul/works/uwsgi-blog/local/lib/python2.7/site-packages/django/core/management/__init__.py", line 330, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/usr/disoul/works/uwsgi-blog/local/lib/python2.7/site-packages/django/core/management/base.py", line 390, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/usr/disoul/works/uwsgi-blog/local/lib/python2.7/site-packages/django/core/management/base.py", line 441, in execute
+    output = self.handle(*args, **options)
+  File "/usr/disoul/works/uwsgi-blog/local/lib/python2.7/site-packages/django/contrib/staticfiles/management/commands/collectstatic.py", line 168, in handle
+    collected = self.collect()
+  File "/usr/disoul/works/uwsgi-blog/local/lib/python2.7/site-packages/django/contrib/staticfiles/management/commands/collectstatic.py", line 97, in collect
+    for finder in get_finders():
+  File "/usr/disoul/works/uwsgi-blog/local/lib/python2.7/site-packages/django/contrib/staticfiles/finders.py", line 264, in get_finders
+    yield get_finder(finder_path)
+  File "/usr/disoul/works/uwsgi-blog/local/lib/python2.7/site-packages/django/utils/lru_cache.py", line 101, in wrapper
+    result = user_function(*args, **kwds)
+  File "/usr/disoul/works/uwsgi-blog/local/lib/python2.7/site-packages/django/contrib/staticfiles/finders.py", line 277, in get_finder
+    return Finder()
+  File "/usr/disoul/works/uwsgi-blog/local/lib/python2.7/site-packages/django/contrib/staticfiles/finders.py", line 66, in __init__
+    "The STATICFILES_DIRS setting should "
+django.core.exceptions.ImproperlyConfigured: The STATICFILES_DIRS setting should not contain the STATIC_ROOT setting
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x2344b50 pid: 9251 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 9251)
+spawned uWSGI worker 1 (pid: 9280, cores: 1)
+spawned uWSGI worker 2 (pid: 9281, cores: 1)
+spawned uWSGI worker 3 (pid: 9282, cores: 1)
+spawned uWSGI worker 4 (pid: 9283, cores: 1)
+spawned uWSGI worker 5 (pid: 9284, cores: 1)
+spawned uWSGI worker 6 (pid: 9285, cores: 1)
+spawned uWSGI worker 7 (pid: 9286, cores: 1)
+spawned uWSGI worker 8 (pid: 9287, cores: 1)
+spawned uWSGI worker 9 (pid: 9288, cores: 1)
+spawned uWSGI worker 10 (pid: 9289, cores: 1)
+From https://github.com/disoul/disoul-blog
+ * branch            master     -> FETCH_HEAD
+   8b60691..8253ad1  master     -> origin/master
+Updating 8b60691..8253ad1
+Fast-forward
+ blog/articles/myblog2.md | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
+ create mode 100644 blog/articles/myblog2.md
+[2015-07-30 21:47:31,786: INFO/MainProcess] Task blog.tasks.update_work[98fc5593-f983-4cc5-9eac-195b833c0dbc] succeeded in 4.06201810599s: 1
+[pid: 9288|app: 0|req: 1/1] 117.68.78.117 () {40 vars in 673 bytes} [Thu Jul 30 21:47:38 2015] GET /blog/ => generated 7288 bytes in 99 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9289|app: 0|req: 1/2] 117.68.78.117 () {40 vars in 673 bytes} [Thu Jul 30 21:47:39 2015] GET /blog/ => generated 7288 bytes in 90 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9288|app: 0|req: 2/3] 117.68.78.117 () {40 vars in 673 bytes} [Thu Jul 30 21:47:40 2015] GET /blog/ => generated 7288 bytes in 21 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9289|app: 0|req: 2/4] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:41 2015] GET /blog/ => generated 7288 bytes in 21 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9288|app: 0|req: 3/5] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:41 2015] GET /blog/ => generated 7288 bytes in 27 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9289|app: 0|req: 3/6] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:41 2015] GET /blog/ => generated 7288 bytes in 23 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9288|app: 0|req: 4/7] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:41 2015] GET /blog/ => generated 7288 bytes in 21 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9289|app: 0|req: 4/8] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:42 2015] GET /blog/ => generated 7288 bytes in 21 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9288|app: 0|req: 5/9] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:42 2015] GET /blog/ => generated 7288 bytes in 21 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9289|app: 0|req: 5/10] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:42 2015] GET /blog/ => generated 7288 bytes in 22 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9288|app: 0|req: 6/11] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:42 2015] GET /blog/ => generated 7288 bytes in 23 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9289|app: 0|req: 6/12] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:42 2015] GET /blog/ => generated 7288 bytes in 21 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9288|app: 0|req: 7/13] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:43 2015] GET /blog/ => generated 7288 bytes in 21 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9289|app: 0|req: 7/14] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:43 2015] GET /blog/ => generated 7288 bytes in 22 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9288|app: 0|req: 8/15] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:43 2015] GET /blog/ => generated 7288 bytes in 22 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9289|app: 0|req: 8/16] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:44 2015] GET /blog/ => generated 7288 bytes in 21 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9288|app: 0|req: 9/17] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:44 2015] GET /blog/ => generated 7288 bytes in 22 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9289|app: 0|req: 9/18] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:44 2015] GET /blog/ => generated 7288 bytes in 21 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9288|app: 0|req: 10/19] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:44 2015] GET /blog/ => generated 7288 bytes in 21 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9289|app: 0|req: 10/20] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:44 2015] GET /blog/ => generated 7288 bytes in 22 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9288|app: 0|req: 11/21] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:45 2015] GET /blog/ => generated 7288 bytes in 22 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9289|app: 0|req: 11/22] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:45 2015] GET /blog/ => generated 7288 bytes in 22 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9288|app: 0|req: 12/23] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:45 2015] GET /blog/ => generated 7288 bytes in 22 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9289|app: 0|req: 12/24] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:46 2015] GET /blog/ => generated 7288 bytes in 22 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9288|app: 0|req: 13/25] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:46 2015] GET /blog/ => generated 7288 bytes in 21 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9289|app: 0|req: 13/26] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:46 2015] GET /blog/ => generated 7288 bytes in 22 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9288|app: 0|req: 14/27] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:46 2015] GET /blog/ => generated 7288 bytes in 21 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9289|app: 0|req: 14/28] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:47 2015] GET /blog/ => generated 7288 bytes in 20 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9288|app: 0|req: 15/29] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:47 2015] GET /blog/ => generated 7288 bytes in 22 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9289|app: 0|req: 15/30] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:47 2015] GET /blog/ => generated 7288 bytes in 22 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9288|app: 0|req: 16/31] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:47 2015] GET /blog/ => generated 7288 bytes in 21 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+Thu Jul 30 21:47:47 2015 - SIGPIPE: writing to a closed pipe/socket/fd (probably the client disconnected) on request /blog/ (ip 117.68.78.117) !!!
+Thu Jul 30 21:47:47 2015 - uwsgi_response_writev_headers_and_body_do(): Broken pipe [core/writer.c line 296] during GET /blog/ (117.68.78.117)
+IOError: write error
+[pid: 9289|app: 0|req: 16/32] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:47 2015] GET /blog/ => generated 0 bytes in 29 msecs (HTTP/1.1 200) 2 headers in 0 bytes (0 switches on core 0)
+Thu Jul 30 21:47:47 2015 - SIGPIPE: writing to a closed pipe/socket/fd (probably the client disconnected) on request /blog/ (ip 117.68.78.117) !!!
+Thu Jul 30 21:47:47 2015 - uwsgi_response_writev_headers_and_body_do(): Broken pipe [core/writer.c line 296] during GET /blog/ (117.68.78.117)
+IOError: write error
+[pid: 9288|app: 0|req: 17/33] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:47 2015] GET /blog/ => generated 0 bytes in 29 msecs (HTTP/1.1 200) 2 headers in 0 bytes (0 switches on core 0)
+Thu Jul 30 21:47:47 2015 - SIGPIPE: writing to a closed pipe/socket/fd (probably the client disconnected) on request /blog/ (ip 117.68.78.117) !!!
+Thu Jul 30 21:47:47 2015 - uwsgi_response_writev_headers_and_body_do(): Broken pipe [core/writer.c line 296] during GET /blog/ (117.68.78.117)
+IOError: write error
+[pid: 9289|app: 0|req: 17/34] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:47 2015] GET /blog/ => generated 0 bytes in 24 msecs (HTTP/1.1 200) 2 headers in 0 bytes (0 switches on core 0)
+[pid: 9288|app: 0|req: 18/35] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:47 2015] GET /blog/ => generated 7288 bytes in 22 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+Thu Jul 30 21:47:47 2015 - SIGPIPE: writing to a closed pipe/socket/fd (probably the client disconnected) on request /blog/ (ip 117.68.78.117) !!!
+Thu Jul 30 21:47:47 2015 - uwsgi_response_writev_headers_and_body_do(): Broken pipe [core/writer.c line 296] during GET /blog/ (117.68.78.117)
+IOError: write error
+[pid: 9289|app: 0|req: 18/36] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:47 2015] GET /blog/ => generated 0 bytes in 31 msecs (HTTP/1.1 200) 2 headers in 0 bytes (0 switches on core 0)
+[pid: 9288|app: 0|req: 19/37] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:47 2015] GET /blog/ => generated 7288 bytes in 27 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9289|app: 0|req: 19/38] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:47 2015] GET /blog/ => generated 7288 bytes in 21 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9288|app: 0|req: 20/39] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:47 2015] GET /blog/ => generated 7288 bytes in 21 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9289|app: 0|req: 20/40] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:47 2015] GET /blog/ => generated 7288 bytes in 21 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+Thu Jul 30 21:47:47 2015 - SIGPIPE: writing to a closed pipe/socket/fd (probably the client disconnected) on request /blog/ (ip 117.68.78.117) !!!
+Thu Jul 30 21:47:47 2015 - uwsgi_response_writev_headers_and_body_do(): Broken pipe [core/writer.c line 296] during GET /blog/ (117.68.78.117)
+IOError: write error
+[pid: 9288|app: 0|req: 21/41] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:47 2015] GET /blog/ => generated 0 bytes in 21 msecs (HTTP/1.1 200) 2 headers in 0 bytes (0 switches on core 0)
+[pid: 9289|app: 0|req: 21/42] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:47 2015] GET /blog/ => generated 7288 bytes in 21 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9288|app: 0|req: 22/43] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:47 2015] GET /blog/ => generated 7288 bytes in 21 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+Thu Jul 30 21:47:47 2015 - SIGPIPE: writing to a closed pipe/socket/fd (probably the client disconnected) on request /blog/ (ip 117.68.78.117) !!!
+Thu Jul 30 21:47:47 2015 - uwsgi_response_writev_headers_and_body_do(): Broken pipe [core/writer.c line 296] during GET /blog/ (117.68.78.117)
+IOError: write error
+[pid: 9289|app: 0|req: 22/44] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:47 2015] GET /blog/ => generated 0 bytes in 21 msecs (HTTP/1.1 200) 2 headers in 0 bytes (0 switches on core 0)
+Thu Jul 30 21:47:47 2015 - SIGPIPE: writing to a closed pipe/socket/fd (probably the client disconnected) on request /blog/ (ip 117.68.78.117) !!!
+Thu Jul 30 21:47:47 2015 - uwsgi_response_writev_headers_and_body_do(): Broken pipe [core/writer.c line 296] during GET /blog/ (117.68.78.117)
+IOError: write error
+[pid: 9288|app: 0|req: 23/45] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:47 2015] GET /blog/ => generated 0 bytes in 20 msecs (HTTP/1.1 200) 2 headers in 0 bytes (0 switches on core 0)
+Thu Jul 30 21:47:47 2015 - SIGPIPE: writing to a closed pipe/socket/fd (probably the client disconnected) on request /blog/ (ip 117.68.78.117) !!!
+Thu Jul 30 21:47:47 2015 - uwsgi_response_writev_headers_and_body_do(): Broken pipe [core/writer.c line 296] during GET /blog/ (117.68.78.117)
+IOError: write error
+[pid: 9289|app: 0|req: 23/46] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:47 2015] GET /blog/ => generated 0 bytes in 21 msecs (HTTP/1.1 200) 2 headers in 0 bytes (0 switches on core 0)
+Thu Jul 30 21:47:47 2015 - SIGPIPE: writing to a closed pipe/socket/fd (probably the client disconnected) on request /blog/ (ip 117.68.78.117) !!!
+Thu Jul 30 21:47:47 2015 - uwsgi_response_writev_headers_and_body_do(): Broken pipe [core/writer.c line 296] during GET /blog/ (117.68.78.117)
+IOError: write error
+[pid: 9288|app: 0|req: 24/47] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:47 2015] GET /blog/ => generated 0 bytes in 20 msecs (HTTP/1.1 200) 2 headers in 0 bytes (0 switches on core 0)
+Thu Jul 30 21:47:47 2015 - SIGPIPE: writing to a closed pipe/socket/fd (probably the client disconnected) on request /blog/ (ip 117.68.78.117) !!!
+Thu Jul 30 21:47:47 2015 - uwsgi_response_writev_headers_and_body_do(): Broken pipe [core/writer.c line 296] during GET /blog/ (117.68.78.117)
+IOError: write error
+[pid: 9289|app: 0|req: 24/48] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:47 2015] GET /blog/ => generated 0 bytes in 19 msecs (HTTP/1.1 200) 2 headers in 0 bytes (0 switches on core 0)
+Thu Jul 30 21:47:47 2015 - SIGPIPE: writing to a closed pipe/socket/fd (probably the client disconnected) on request /blog/ (ip 117.68.78.117) !!!
+Thu Jul 30 21:47:47 2015 - uwsgi_response_writev_headers_and_body_do(): Broken pipe [core/writer.c line 296] during GET /blog/ (117.68.78.117)
+IOError: write error
+[pid: 9288|app: 0|req: 25/49] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:47 2015] GET /blog/ => generated 0 bytes in 20 msecs (HTTP/1.1 200) 2 headers in 0 bytes (0 switches on core 0)
+[pid: 9289|app: 0|req: 25/50] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:47 2015] GET /blog/ => generated 7288 bytes in 23 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+Thu Jul 30 21:47:48 2015 - SIGPIPE: writing to a closed pipe/socket/fd (probably the client disconnected) on request /blog/ (ip 117.68.78.117) !!!
+Thu Jul 30 21:47:48 2015 - uwsgi_response_writev_headers_and_body_do(): Broken pipe [core/writer.c line 296] during GET /blog/ (117.68.78.117)
+IOError: write error
+[pid: 9288|app: 0|req: 26/51] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:48 2015] GET /blog/ => generated 0 bytes in 49 msecs (HTTP/1.1 200) 2 headers in 0 bytes (0 switches on core 0)
+Thu Jul 30 21:47:48 2015 - SIGPIPE: writing to a closed pipe/socket/fd (probably the client disconnected) on request /blog/ (ip 117.68.78.117) !!!
+Thu Jul 30 21:47:48 2015 - uwsgi_response_writev_headers_and_body_do(): Broken pipe [core/writer.c line 296] during GET /blog/ (117.68.78.117)
+IOError: write error
+[pid: 9288|app: 0|req: 27/52] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:48 2015] GET /blog/ => generated 0 bytes in 47 msecs (HTTP/1.1 200) 2 headers in 0 bytes (0 switches on core 0)
+[pid: 9289|app: 0|req: 26/53] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:48 2015] GET /blog/ => generated 7288 bytes in 51 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+Thu Jul 30 21:47:48 2015 - SIGPIPE: writing to a closed pipe/socket/fd (probably the client disconnected) on request /blog/ (ip 117.68.78.117) !!!
+Thu Jul 30 21:47:48 2015 - uwsgi_response_writev_headers_and_body_do(): Broken pipe [core/writer.c line 296] during GET /blog/ (117.68.78.117)
+IOError: write error
+[pid: 9285|app: 0|req: 1/54] 117.68.78.117 () {42 vars in 704 bytes} [Thu Jul 30 21:47:48 2015] GET /blog/ => generated 0 bytes in 162 msecs (HTTP/1.1 200) 2 headers in 0 bytes (0 switches on core 0)
+[pid: 9288|app: 0|req: 28/55] 117.68.78.117 () {40 vars in 706 bytes} [Thu Jul 30 23:50:33 2015] GET /blog/ => generated 7288 bytes in 22 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 9289|app: 0|req: 27/56] 117.68.78.117 () {38 vars in 576 bytes} [Thu Jul 30 23:50:33 2015] GET /favicon.ico => generated 1036 bytes in 4 msecs (HTTP/1.1 404) 2 headers in 95 bytes (1 switches on core 0)
