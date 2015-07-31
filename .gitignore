@@ -81,7 +81,7 @@ uwsgi_params
 webhook.py
 
 # Nohup
-nohup.out
+*.out
 
 # bower+grunt
 /bower_components/
