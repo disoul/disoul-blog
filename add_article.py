@@ -76,6 +76,7 @@ def main():
     file_list = getFile()
     for filepath in file_list:
         update_articles(filepath)
+    print 'DONE!'
     
 
 
