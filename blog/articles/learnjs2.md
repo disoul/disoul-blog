@@ -1,3 +1,5 @@
+Learning Advanced JavaScript 学习笔记(2)
+javascript web
 # Context 上下文
 感觉这一章比较难以理解，但应该也是很重要的一章  
 在学习之前先了解，Context(上下文)是个什么鬼  
