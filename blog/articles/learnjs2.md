@@ -15,7 +15,9 @@ var a = function(){
   } //在这2个方法里，this是指向a的
     //但是js可以轻松地改变this的指向，也就是修改上下文
 }
-
+```
+@@
+```javascript
 assert(a.flag == null, '可以看到，虽然a对象创建了，但是在调用方法之前a.flag都不存在');
 a.setTrue();
 assert(a.flag == true, '注意我们是通过a.setTrue调用的，也就是说此时上下文是a
