@@ -42,7 +42,7 @@ def tag(request,tag_get):
 def article(request,article_get):
     articlepage = get_template('article.html')
     try:
-        article_obj = Article.objects.get(title = article_get)
+        article_obj = Article.objects.get(id = article_get)
     except Article.DoesNotExist:
         raise Http404()
     else:
