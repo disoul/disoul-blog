@@ -11,7 +11,7 @@
 # 配置github的Webhook
 这个在前几篇博客也提到了，想法是直接远程push服务器端自动pull  
 然后气体有推荐我可以去借此机会学一学celery，于是遍有了那篇博文的折腾
-<a href="http://disoul.me/blog/article/%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%8BDjango%E5%88%A9%E7%94%A8Webhook%E6%9D%A5%E6%9B%B4%E6%96%B0%E6%96%87%E7%AB%A0/">Webhook过程</a>  
+<a href="http://disoul.me/blog/article/33/">Webhook过程</a>  
 基本实现了想要的样子，然而实话实说还是有点bug..  
 
 # 之后的路
