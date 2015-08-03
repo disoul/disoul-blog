@@ -1,11 +1,20 @@
 {% extends "base.html" %}
 {% block staticfiles %}
-
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static "css/404.css" %}">
 {% endblock %}
 {% block title %}
 <title>Disoul-404</title>
 {% endblock %}
 
 {% block main-content %}
-404NOTFOUND!
+<div class="center">
+	<div class="text">
+		<p>4 0 4</p>
+		<p>NOT FOUND!</p>
+	</div>
+	<div class="nagisa">
+		<img src="{% static "image/nagisa.png" %}" alt="我渚美如画">
+	</div>
+</div>
 {% endblock %}

@@ -39,7 +39,8 @@ module.exports = function(grunt) {
 		  '<%= meta.cssPath %>index.css': '<%= meta.scssPath %>index.scss',
 		  '<%= meta.cssPath %>tag.css': '<%= meta.scssPath %>tag.scss',
 		  '<%= meta.cssPath %>aboutme.css': '<%= meta.scssPath %>aboutme.scss',
-		  '<%= meta.cssPath %>article.css': '<%= meta.scssPath %>article.scss'
+		  '<%= meta.cssPath %>article.css': '<%= meta.scssPath %>article.scss',
+		  '<%= meta.cssPath %>404.css': '<%= meta.scssPath %>404.scss',
 		}
 	  }
 	},
