@@ -11,7 +11,7 @@ class Article(models.Model):
     date = models.DateTimeField(auto_now=True)
     preview_line = models.IntegerField()
     class Meta():
-        ordering = ['-date']
+        ordering = ['-id']
 
 
 class update_timetuple(models.Model):
