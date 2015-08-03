@@ -41,12 +41,31 @@ def tag(request,tag_get):
 
 def article(request,article_get):
     articlepage = get_template('article.html')
+    context_dic = {} 
     try:
         article_obj = Article.objects.get(id = article_get)
-    except Article.DoesNotExist:
+    except:
         raise Http404()
     else:
-        context = Context({'article':article_obj,})
+        context_dic['article'] = article_obj
+        try:
+            article_pre_obj = Article.objects.get(id = int(article_get) - 1)
+        except:
+            context_dic['pre'] = False
+        else:
+            context_dic['pre'] = True
+            context_dic['pre_obj'] = article_pre_obj
+
+        try:
+            article_next_obj = Article.objects.get(id = int(article_get) + 1)
+        except:
+            context_dic['next'] = False
+        else:
+            context_dic['next'] = True
+            context_dic['next_obj'] = article_next_obj
+
+
+        context = Context(context_dic)
     return HttpResponse(articlepage.render(context))
 
 

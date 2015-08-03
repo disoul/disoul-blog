@@ -21,7 +21,7 @@
 		</div>
 		<div class="article-tag">
 		    {% for articletag in article.tag.all  %}
-		    <a href="http://disoul.me/blog/tag/{{articletag.tag_name}}">{{ articletag.tag_name }}</a>
+		    <a href="../../tag/{{articletag.tag_name}}">{{ articletag.tag_name }}</a>
 		    {% endfor %}
 		</div>
 		<div class="article-content">
@@ -29,7 +29,19 @@
 		</div>
 
 		<div class="article-other">
-		    {{ article.date|date:"F j, Y" }}
+			<div class="pre">
+				{% if pre %}
+				<a href="../{{ pre_obj.id }}"><i class="fa fa-arrow-left"></i>{{ pre_obj.title }}</a>
+				{% else %}
+				{% endif %}
+			</div>
+			<div class="date">{{ article.date|date:"F j, Y" }}</div>
+			<div class="next">
+				{% if next %}
+				<a href="../{{ next_obj.id }}"><i class="fa fa-arrow-left"></i>{{ next_obj.title }}</a>
+				{% else %}
+				{% endif %}
+			</div>
 		</div>
 	</div>
 </div>

@@ -1,4 +1,4 @@
-Article-Learning Advanced JavaScript 学习笔记(3)
+Learning Advanced JavaScript 学习笔记(3)
 web javascript
 # Flexible Arguments 灵活的参数
 函数的参数也是一个学问，还是栗子

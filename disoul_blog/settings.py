@@ -27,7 +27,7 @@ BROKER_URL = 'redis://localhost:6379/0'
 SECRET_KEY = '!yk@1+^*z%du%6hpzni!a%(%56pn-02slr9#8cu&n&w-7=_&c)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*',]
 
@@ -106,10 +106,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_ROOT = '/usr/disoul/works/disoul-blog/static'
+STATIC_ROOT = os.path.join(os.path.dirname(__file__),'../blog/static')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = ('/usr/disoul/works/disoul-blog/static',
-                   ) 
 
 # Duoshuo
 DUOSHUO_SECRET = 'e71ca0b9b956fab82beb27727f239793'
