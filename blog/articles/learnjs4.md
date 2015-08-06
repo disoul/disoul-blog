@@ -22,6 +22,7 @@ web javascript
 assert( typeof count == "undefined", "count doesn't exist outside the wrapper" ); 
 assert( typeof timer == "undefined", "neither does timer" );
 ```
+@@
 这段栗子的标题叫Self-executing, temporary, function   
 显而易见，在定义函数的时候在函数体套上`()`就可以实现这种临时函数的效果    
 自执行、临时的函数    
