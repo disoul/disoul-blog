@@ -35,13 +35,13 @@
 				{% else %}
 				{% endif %}
 			</div>
-			<div class="date">{{ article.date|date:"F j, Y" }}</div>
 			<div class="next">
 				{% if next %}
 				<a href="../{{ next_obj.id }}">{{ next_obj.title }}<i class="fa fa-arrow-right"></i></a>
 				{% else %}
 				{% endif %}
 			</div>
+			<div class="date">{{ article.date|date:"F j, Y" }}</div>
 		</div>
 	</div>
 </div>
