@@ -19,6 +19,9 @@ $mid-white: #C2C0C0;
 		position: relative;
 		bottom: 8px;
 	}
+	@media (max-width: 1100px){
+		display: none;
+	}
 }
 .left-list-mask {
 	overflow: hidden;
