@@ -1,0 +1,36 @@
+$blue-700: #455ede;
+/*sticky footer by flexbox*/
+
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+.page-warp {
+	flex: 1;
+}
+
+.site-footer {
+	width: 100%;
+	background-color: $blue-700;
+	height: 50px;
+	p {
+		text-align: center;
+		font-size: 1.5em;
+		color: white;
+		padding-top: 10px;
+		letter-spacing: .1em;
+		i {
+			margin-left: .5em;
+			margin-right: .5em;
+			cursor: pointer;
+		}
+		a {
+			color: white;
+			&:hover {
+				color: $light-blue-400;
+			}
+		}
+	}
+}

@@ -1,0 +1,81 @@
+.main-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	.mid-content {
+		width: 80em;
+	}
+}
+
+.head-block {
+	display: flex;
+	margin-top: 1em;
+	.icon-block{
+		flex:1;
+		border-right: 1px solid $low-white;
+		.icon {
+			width: 15em;
+			height: 15em;
+			margin: 2em auto 2em auto;
+			border: 5px solid $red-a100;
+			border-radius: 15em;
+            background-image: url('../image/disoul-icon.jpeg');		
+			background-size: cover;
+			transition: border-width 0.5s;
+			&:hover {
+				border-width: 10px;
+			}
+		}
+	}
+	.name-block {
+		flex: 1;
+		border-right: 1px solid $low-white;
+		padding-top: 3.5em;
+		.name {
+			display: block;
+			font-size: 4em;
+			margin: .3em 75px .3em;
+			width: 0px;
+			border-bottom: 5px solid $light-blue-400;
+			white-space: nowrap;
+			transition: width .5s;
+			cursor: default;
+			&:hover {
+				width: 275px;
+			}
+			span {
+				color: $red-a100;
+			}
+		}
+		.word {
+			position: relative;
+			p {
+				position: absolute;
+				right: 80px;
+				font-size: 2em;
+				color: $light-blue-400;
+				span {
+					color: $red-a100;
+				}
+			}
+		}
+	}
+    .about-block {
+		flex: 1;
+		padding-top: 3.5em;
+		p:first-child {
+			font-size: 2.5em;
+			margin-left: 2em;
+		}
+		#lovedays {
+			margin-left: 1.5em;
+			font-size: 6em;
+			color: $red-a100;
+			span {
+				font-size: .3em;
+				color: $light-blue-400;
+			}
+		}
+	}
+}

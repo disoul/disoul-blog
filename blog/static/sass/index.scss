@@ -1,0 +1,25 @@
+@import "global";
+@import "color";
+@import "navigation";
+@import "article-content";
+@import "home-content";
+@import "left-list";
+@import "footer";
+@import "markdown";
+
+
+body {
+	background-color: $black-50;
+}
+
+.page-warp {
+	display: flex;
+	justify-content: center;
+}
+
+
+.home-main {
+	order: 2;
+	flex: 1;
+}
+

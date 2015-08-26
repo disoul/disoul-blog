@@ -1,0 +1,91 @@
+$light-blue-600: #039be5;
+$mid-white: #C2C0C0;
+
+.left-list-control {
+    position: fixed;
+    width: 5em;
+    height: 3.5em;
+    background-color: $black-200;
+    top: 400px;
+    left: -5px;
+    cursor: pointer;
+    border:10px solid $black-200;
+    border-radius: 10px;
+    box-shadow: 0 0 7px $mid-black;
+	z-index: 100;
+	i {
+		float: right;
+		margin-right: 20px;
+		position: relative;
+		bottom: 8px;
+	}
+}
+.left-list-mask {
+	overflow: hidden;
+	box-shadow: 3px 3px 3px $light-blue-100;
+	width: 0;
+    order: 1;
+	z-index: 1;
+}
+
+.left-list {
+	background-color: white;
+	border-right: 1px solid $mid-white;
+	width: 120px;
+	height: 100%;
+	.tag-list {
+		color: $light-blue-600;
+		p {
+		    text-align: center;
+		    font-size: 25px;
+			display: block;
+			padding-bottom: .2em;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+		ul {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			padding-left: 0;
+			overflow: hidden;
+		}
+		li {
+			padding-left: .5em;
+			font-size: 17px;
+			display: block;
+			color: black;
+			padding-top:.5em;
+			padding-bottom: .5em;
+			overflow: hidden;
+			white-space: nowrap;
+			position: relative;
+			&:nth-child(odd) {
+				background-color: $min-white;
+			}
+			&:hover {
+				background-color: $light-blue-50;
+			}
+			a {
+				text-decoration: none;
+				color: $mid-black;
+				&:hover {
+					color: black;
+				}
+			}
+			.tag-counts {
+				display: inline-block;
+				width: 1.5em;
+				height: 1.5em;
+				border: 1px solid $low-black;
+				border-radius: 1.5em;
+				position: absolute;
+				right: 2px;
+				background-color: $low-black;
+				p {
+					font-size: .9em;
+				}
+			}
+		}
+	}
+}
