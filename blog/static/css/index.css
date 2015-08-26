@@ -232,6 +232,8 @@ html {
   flex-direction: column;
   word-wrap: break-word;
   word-break: break-all;
+  width: 980px;
+  margin: auto;
 }
 @media (max-width: 980px) {
   .main-content {
@@ -461,4 +463,9 @@ body {
 .home-main {
   order: 2;
   flex: 1;
+}
+@media (max-width: 980px) {
+  .home-main {
+    max-width: 100%;
+  }
 }

@@ -21,6 +21,9 @@ body {
 .home-main {
 	order: 2;
 	flex: 1;
+	@media (max-width: 980px) {
+		max-width: 100%;
 
+	}
 }
 
