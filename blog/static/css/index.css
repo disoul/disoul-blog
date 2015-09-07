@@ -275,6 +275,30 @@ html {
   color: #29b6f6;
 }
 
+.hanayo {
+  position: fixed;
+  bottom: 0;
+  right: 100px;
+  width: 200px;
+  transition: width 1s cubic-bezier(0.77, 0, 0.18, 1) 0s;
+}
+@media (max-width: 1680px) {
+  .hanayo {
+    right: 0;
+  }
+}
+@media (max-width: 980px) {
+  .hanayo {
+    display: none;
+  }
+}
+.hanayo:hover {
+  width: 300px;
+}
+.hanayo img {
+  width: 100%;
+}
+
 .left-list-control {
   position: fixed;
   width: 5em;

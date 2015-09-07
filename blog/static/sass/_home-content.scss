@@ -47,3 +47,24 @@ $tag-bg-color: #D7D7D7;
 		color: $light-blue-400;
 	}
 }
+
+.hanayo {
+	position: fixed;
+	bottom: 0;
+	right: 100px;
+	width: 200px;
+	transition: width 1s cubic-bezier(0.77,0,0.18,1) 0s;
+	@media (max-width: 1680px){
+		right: 0;
+	}
+	@media (max-width: 980px){
+		display: none;
+	}
+	&:hover {
+		width: 300px;
+	}
+
+	img {
+		width: 100%;
+	}
+}

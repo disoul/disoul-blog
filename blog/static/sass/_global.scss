@@ -11,3 +11,7 @@
 html {
 	font-family: "Droid Sans","Droid Sans Fallback","Source Han Sans SC","Microsoft YaHei";
 }      
+
+@mixin px2($size) {
+	font-size: $size / 2;
+}
