@@ -10,6 +10,27 @@ gulp.task('compass',function(){
 		sass: 'sass',
 		image: 'image'
 	}));
+	gulp.src('./blog/static/sass/article.scss')
+	.pipe(compass({
+		project: path.join(__dirname,'./blog/static'),
+		css: 'css',
+		sass: 'sass',
+		image: 'image'
+	}));
+	gulp.src('./blog/static/sass/aboutme.scss')
+	.pipe(compass({
+		project: path.join(__dirname,'./blog/static'),
+		css: 'css',
+		sass: 'sass',
+		image: 'image'
+	}));
+	gulp.src('./blog/static/sass/tag.scss')
+	.pipe(compass({
+		project: path.join(__dirname,'./blog/static'),
+		css: 'css',
+		sass: 'sass',
+		image: 'image'
+	}));
 });
 
 gulp.task('sass:watch',function(){
