@@ -243,3 +243,46 @@ body {
 .site-footer p a:hover {
   color: #29b6f6;
 }
+
+.hanayo {
+  position: fixed;
+  bottom: 0;
+  right: 100px;
+  width: 200px;
+  transition: width 1s cubic-bezier(0.77, 0, 0.18, 1) 0s;
+  z-index: 9999;
+}
+@media (max-width: 1680px) {
+  .hanayo {
+    right: 0;
+  }
+}
+@media (max-width: 980px) {
+  .hanayo {
+    width: 100px;
+  }
+}
+.hanayo:hover {
+  width: 300px;
+}
+@media (max-width: 980px) {
+  .hanayo:hover {
+    width: 150px;
+  }
+}
+.hanayo img {
+  width: 100%;
+}
+@media (max-width: 980px) {
+  .hanayo #big {
+    display: none;
+  }
+}
+.hanayo #small {
+  display: none;
+}
+@media (max-width: 980px) {
+  .hanayo #small {
+    display: block;
+  }
+}
