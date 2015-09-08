@@ -166,11 +166,12 @@ html {
 }
 
 .article_block {
+  margin: auto;
   margin-bottom: 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  max-width: 980px;
 }
 .article_block .article {
   width: 100%;
