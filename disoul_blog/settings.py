@@ -15,9 +15,6 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-import djcelery
-djcelery.setup_loader()
-BROKER_URL = 'redis://localhost:6379/0'
 
 
 # Quick-start development settings - unsuitable for production
@@ -41,7 +38,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'djcelery',
     'blog',
     'duoshuo',
 )
