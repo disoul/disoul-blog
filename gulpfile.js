@@ -3,28 +3,11 @@ var gulp = require('gulp'),
 	path = require('path');
 
 gulp.task('compass',function(){
-	gulp.src('./blog/static/sass/index.scss')
-	.pipe(compass({
-		project: path.join(__dirname,'./blog/static'),
-		css: 'css',
-		sass: 'sass',
-		image: 'image'
-	}));
-	gulp.src('./blog/static/sass/article.scss')
-	.pipe(compass({
-		project: path.join(__dirname,'./blog/static'),
-		css: 'css',
-		sass: 'sass',
-		image: 'image'
-	}));
-	gulp.src('./blog/static/sass/aboutme.scss')
-	.pipe(compass({
-		project: path.join(__dirname,'./blog/static'),
-		css: 'css',
-		sass: 'sass',
-		image: 'image'
-	}));
-	gulp.src('./blog/static/sass/tag.scss')
+	gulp.src([
+        './blog/static/sass/index.scss', './blog/static/sass/article.scss',
+        './blog/static/sass/aboutme.scss', './blog/static/sass/tag.scss',
+        './blog/static/sass/404.scss'
+    ])
 	.pipe(compass({
 		project: path.join(__dirname,'./blog/static'),
 		css: 'css',
