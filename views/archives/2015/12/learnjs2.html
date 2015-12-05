@@ -1,0 +1,131 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="/static/public/bower_components/material-design-lite/material.css" rel="stylesheet"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="/static/public/css/article.css" rel="stylesheet"><title>Learning Advanced JavaScript 学习笔记(2)</title></head><body><div class="mdl-layout mdl-js-layout"><header class="mdl-layout__header mdl-layout__header--waterfall"><div class="mdl-layout__header-row"><a href="/" class="mdl-layout-title">My Blog</a><div class="mdl-layout-spacer"></div><div class="mdl-layout-spatfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-rightl mdl-textfield--align-right"><label for="waterfall-exp" class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">search</i></label><div class="mdl-textfield__expandable-holder"><input type="text" name="sample" id="waterfall-exp" class="mdl-textfield__input"></div></div></div><div class="mdl-layout__header-row"><div class="mdl-layout-spacer"></div><nav class="mdl-navigation"><a href="/" class="mdl-navigation__link">Home</a><a href="/tag/index.html" class="mdl-navigation__link">Tags</a><a href="/archives/index.html" class="mdl-navigation__link">Archives</a><a href="" class="mdl-navigation__link">AboutMe</a></nav></div></header><div class="mdl-layout__drawer"><span class="mdl-layout-title">My Blog</span><nav class="mdl-navigation"><a href="/" class="mdl-navigation__link">Home</a><a href="/tag/index.html" class="mdl-navigation__link">Tags</a><a href="/archives/index.html" class="mdl-navigation__link">Archives</a><a href="" class="mdl-navigation__link">AboutMe</a></nav></div><main id="main" class="mdl-layout__content"><div class="page-content"><div id="article-block"><h2 class="title">Learning Advanced JavaScript 学习笔记(2)</h2><div class="tags"><a href="/tag/javascript.html">javascript</a><a href="/tag/web.html">web</a></div><div class="article-content"><h1>Context 上下文</h1>
+<p>感觉这一章比较难以理解，但应该也是很重要的一章<br>
+在学习之前先了解，Context(上下文)是个什么鬼<br>
+按照我现在的理解方法，就是每个对象在不同的域内有不同的context<br>
+context体现在this对象上，就好像在代码的不同区域this所指向的对象不同一样<br>
+举个栗子</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">var</span> a = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+  setTrue: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">this</span>.flag = <span class="hljs-literal">true</span>;
+  }
+  setFalse: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">this</span>.flag = <span class="hljs-literal">false</span>;
+  } <span class="hljs-comment">//在这2个方法里，this是指向a的</span>
+    <span class="hljs-comment">//但是js可以轻松地改变this的指向，也就是修改上下文</span>
+}
+</code></pre>
+<p>@@</p>
+<pre><code class="language-javascript">assert(a.flag == null, '可以看到，虽然a对象创建了，但是在调用方法之前a.flag都不存在');
+a.setTrue();
+assert(a.flag == true, '注意我们是通过a.setTrue调用的，也就是说此时上下文是a
+                        执行方法的时候，this指的也是a');
+window.setFalse = a.setFalse; //window对象可以理解为一个全局对象的概念
+                              //js中所有全局对象都是window的属性
+window.setFalse();//此时在setFalse中this就指向了window而不是a，上下文变成了window
+                  //所以下面2句应该就能理解了
+assert((a.flag == true)&amp;&amp;(window.flag == false));
+</code></pre>
+<p>上面只是理解上下文的举例<br>
+更改上下文在js里一般用到<code>call</code>和<code>apply</code>，具体见下面栗子</p>
+<pre><code class="language-javascript">
+
+<span class="hljs-keyword">var</span> object = {}; 
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params"></span>)</span>{ 
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>; 
+} 
+assert( fn() == <span class="hljs-keyword">this</span>, <span class="hljs-string">"The context is the global object."</span> ); 
+assert( fn.call(object) == object, <span class="hljs-string">"The context is changed to a specific object."</span> );
+</code></pre>
+<p>这里<code>call</code>是指fn执行object方法，也就是={}，所以返回object<br>
+<code>call</code>方法是js里非常重要的一种方法<br>
+语法<code>fun.call(thisArg[, arg1[, arg2[, ...]]])</code><br>
+其中<code>thisArg</code>指的是执行方法时的上下文，也就是this的指向<br>
+具体定义可以参照mdn的<code>call</code>条目，&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call&quot;&gt;戳这里&lt;/a&gt;</p>
+<p>除了<code>call</code>以外还有一个类似作用的方法<code>apply</code>，于是又是栗子</p>
+<pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">a, b</span>)</span>{ 
+  <span class="hljs-keyword">return</span> a + b; 
+} 
+assert( add.call(<span class="hljs-keyword">this</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>) == <span class="hljs-number">3</span>, <span class="hljs-string">".call() takes individual arguments"</span> ); 
+assert( add.apply(<span class="hljs-keyword">this</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]) == <span class="hljs-number">3</span>, <span class="hljs-string">".apply() takes an array of arguments"</span> );
+</code></pre>
+<p>可以看出<code>apply</code>只接受一个数组作为后面的参数，而<code>call</code>可以跟任意数量的参数<br>
+下面这个栗子，举例了使用call来更改方法调用的上下文</p>
+<pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">loop</span>(<span class="hljs-params">array, fn</span>)</span>{ 
+  <span class="hljs-keyword">for</span> ( <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; array.length; i++ ) 
+    fn.call( array, array[i], i ); 
+} 
+<span class="hljs-keyword">var</span> num = <span class="hljs-number">0</span>; 
+loop([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>], <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value, i</span>)</span>{ 
+  assert(value == num++, <span class="hljs-string">"Make sure the contents are as we expect it."</span>); 
+  assert(<span class="hljs-keyword">this</span> <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span>, <span class="hljs-string">"The context should be the full array."</span>); 
+});
+</code></pre>
+<p>这里<code>fn.call</code>时指定的第一个参数是<code>array</code>，也就是一个<code>Array</code>对象<br>
+所以倒数第二行里在执行的时候<code>this instanceof Array</code>返回true</p>
+<h1>Instantiation 实例</h1>
+<p>栗子</p>
+<pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Ninja</span>(<span class="hljs-params"></span>)</span>{ 
+  <span class="hljs-keyword">this</span>.name = <span class="hljs-string">"Ninja"</span>; 
+} 
+ 
+<span class="hljs-keyword">var</span> ninjaA = Ninja(); 
+assert( !ninjaA, <span class="hljs-string">"Is undefined, not an instance of Ninja."</span> ); 
+ 
+<span class="hljs-keyword">var</span> ninjaB = <span class="hljs-keyword">new</span> Ninja(); 
+assert( ninjaB.name == <span class="hljs-string">"Ninja"</span>, <span class="hljs-string">"Property exists on the ninja instance."</span> );
+</code></pre>
+<p>这个例子里，<code>ninjaA</code>虽然写了定义没有实例，而通过<code>new</code>创建的<code>ninjaB</code>才拥有实例，从而拥有了方法属性<br>
+下面的栗子</p>
+<pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Ninja</span>(<span class="hljs-params"></span>)</span>{ 
+  <span class="hljs-keyword">this</span>.swung = <span class="hljs-literal">false</span>; 
+   
+  <span class="hljs-comment">// Should return true </span>
+  <span class="hljs-keyword">this</span>.swingSword = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ 
+    <span class="hljs-keyword">this</span>.swung = !<span class="hljs-keyword">this</span>.swung; 
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.swung; 
+  }; 
+} 
+ 
+<span class="hljs-keyword">var</span> ninja = <span class="hljs-keyword">new</span> Ninja(); 
+assert( ninja.swingSword(), <span class="hljs-string">"Calling the instance method."</span> ); 
+assert( ninja.swung, <span class="hljs-string">"The ninja has swung the sword."</span> ); 
+ 
+<span class="hljs-keyword">var</span> ninjaB = <span class="hljs-keyword">new</span> Ninja(); 
+assert( !ninjaB.swung, <span class="hljs-string">"Make sure that the ninja has not swung his sword."</span> );
+</code></pre>
+<p>意思大概就是不同实例的this对应不同对象，互不影响<br>
+next</p>
+<pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">User</span>(<span class="hljs-params">first, last</span>)</span>{ 
+  <span class="hljs-keyword">this</span>.name = first + <span class="hljs-string">" "</span> + last; 
+} 
+ 
+<span class="hljs-built_in">window</span>.name = <span class="hljs-string">"Resig"</span>; 
+<span class="hljs-keyword">var</span> user = User(<span class="hljs-string">"John"</span>, name); 
+ 
+assert( name == <span class="hljs-string">"John Resig"</span>, <span class="hljs-string">"The name variable is accidentally overridden."</span> );
+</code></pre>
+<p>注意，这段代码在创建<code>user</code>时并没有使用<code>new</code>操作符<br>
+所以<code>user</code>是没有实例的，但是从结果来看<br>
+<code>User</code>里的代码被执行了，因为改变的量是<code>window.name</code><br>
+所以在执行这段代码时，上下文是全局<br>
+这和<code>new</code>的区别在于，通过<code>new</code>创建的对象<br>
+执行方法时上下文指的是本身创建的对象而不是全局</p>
+<p>所以下面作者给出了这段代码</p>
+<pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">User</span>(<span class="hljs-params">first, last</span>)</span>{ 
+  <span class="hljs-keyword">if</span> ( !(<span class="hljs-keyword">this</span> <span class="hljs-keyword">instanceof</span> User) ) 
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> User(first, last); 
+   
+  <span class="hljs-keyword">this</span>.name = first + <span class="hljs-string">" "</span> + last; 
+} 
+ 
+<span class="hljs-keyword">var</span> name = <span class="hljs-string">"Resig"</span>; 
+<span class="hljs-keyword">var</span> user = User(<span class="hljs-string">"John"</span>, name); 
+ 
+assert( user, <span class="hljs-string">"This was defined correctly, even if it was by mistake."</span> ); 
+assert( name == <span class="hljs-string">"Resig"</span>, <span class="hljs-string">"The right name was maintained."</span> );
+</code></pre>
+<p>即在执行方法是判断上下文，如果不是这个对象，则自己添加<code>new</code>操作符创建<br>
+防止自己手滑么...</p>
+<p>明天再更</p>
+</div></div></div><footer class="mdl-mini-footer"><div class="mdl-mini-footer__left-section"><div class="mdl-logo"> 
+My Blog <i class="material-icons">person</i> Disoul</div></div></footer></main></div></body></html><script src="/static/public/bower_components/material-design-lite/material.min.js"></script>

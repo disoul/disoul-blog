@@ -1,0 +1,137 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="/static/public/bower_components/material-design-lite/material.css" rel="stylesheet"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="/static/public/css/article.css" rel="stylesheet"><title>Learning Advanced JavaScript 学习笔记(4)</title></head><body><div class="mdl-layout mdl-js-layout"><header class="mdl-layout__header mdl-layout__header--waterfall"><div class="mdl-layout__header-row"><a href="/" class="mdl-layout-title">My Blog</a><div class="mdl-layout-spacer"></div><div class="mdl-layout-spatfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-rightl mdl-textfield--align-right"><label for="waterfall-exp" class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">search</i></label><div class="mdl-textfield__expandable-holder"><input type="text" name="sample" id="waterfall-exp" class="mdl-textfield__input"></div></div></div><div class="mdl-layout__header-row"><div class="mdl-layout-spacer"></div><nav class="mdl-navigation"><a href="/" class="mdl-navigation__link">Home</a><a href="/tag/index.html" class="mdl-navigation__link">Tags</a><a href="/archives/index.html" class="mdl-navigation__link">Archives</a><a href="" class="mdl-navigation__link">AboutMe</a></nav></div></header><div class="mdl-layout__drawer"><span class="mdl-layout-title">My Blog</span><nav class="mdl-navigation"><a href="/" class="mdl-navigation__link">Home</a><a href="/tag/index.html" class="mdl-navigation__link">Tags</a><a href="/archives/index.html" class="mdl-navigation__link">Archives</a><a href="" class="mdl-navigation__link">AboutMe</a></nav></div><main id="main" class="mdl-layout__content"><div class="page-content"><div id="article-block"><h2 class="title">Learning Advanced JavaScript 学习笔记(4)</h2><div class="tags"><a href="/tag/web.html">web</a><a href="/tag/javascript.html">javascript</a></div><div class="article-content"><h1>Temporary Scope 临时作用域</h1>
+<p>至于标题啥意思一开始也没弄清楚，看栗子比较直观</p>
+<pre><code class="language-javascript">(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ 
+  <span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>; 
+ 
+  <span class="hljs-keyword">var</span> timer = setInterval(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ 
+    <span class="hljs-keyword">if</span> ( count &lt; <span class="hljs-number">5</span> ) { 
+      log( <span class="hljs-string">"Timer call: "</span>, count ); 
+      count++; 
+    } <span class="hljs-keyword">else</span> { 
+      assert( count == <span class="hljs-number">5</span>, <span class="hljs-string">"Count came via a closure, accessed each step."</span> ); 
+      assert( timer, <span class="hljs-string">"The timer reference is also via a closure."</span> ); 
+      clearInterval( timer ); 
+    } 
+  }, <span class="hljs-number">100</span>); 
+})(); 
+ 
+assert( <span class="hljs-keyword">typeof</span> count == <span class="hljs-string">"undefined"</span>, <span class="hljs-string">"count doesn't exist outside the wrapper"</span> ); 
+assert( <span class="hljs-keyword">typeof</span> timer == <span class="hljs-string">"undefined"</span>, <span class="hljs-string">"neither does timer"</span> );
+</code></pre>
+<p>@@<br>
+这段栗子的标题叫Self-executing, temporary, function<br>
+显而易见，在定义函数的时候在函数体套上<code>()</code>就可以实现这种临时函数的效果<br>
+自执行、临时的函数<br>
+所以这个函数内部变量的作用域也是临时的，栗子中可见在在外部访问显示<code>undefined</code></p>
+<pre><code class="language-javascript"><span class="hljs-keyword">for</span> ( <span class="hljs-keyword">var</span> d = <span class="hljs-number">0</span>; d &lt; <span class="hljs-number">3</span>; d++ ) (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">d</span>)</span>{ 
+ setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ 
+   log( <span class="hljs-string">"Value of d: "</span>, d ); 
+   assert( d == d, <span class="hljs-string">"Check the value of d."</span> ); 
+ }, d * <span class="hljs-number">200</span>); 
+})(d);
+</code></pre>
+<p>使用临时函数的方法在每个循环下创建参数为这个循环序号的函数<br>
+因为闭包的特性变量d会记忆在这个函数里，从而实现效果</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">var</span> myLib = (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ 
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myLib</span>(<span class="hljs-params"></span>)</span>{ 
+    <span class="hljs-comment">// Initialize </span>
+  } 
+ 
+  <span class="hljs-comment">// ... </span>
+   
+  <span class="hljs-keyword">return</span> myLib; 
+})();
+</code></pre>
+<p>封装库的一个方法</p>
+<h1>Function Prototypes 函数原型</h1>
+<p>什么是原型？<br>
+对于js，每个函数都有它的原型<code>prototype</code><br>
+举个栗子</p>
+<pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Ninja</span>(<span class="hljs-params"></span>)</span>{} 
+ 
+Ninja.prototype.swingSword = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ 
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; 
+}; 
+ 
+<span class="hljs-keyword">var</span> ninjaA = Ninja(); 
+assert( !ninjaA, <span class="hljs-string">"Is undefined, not an instance of Ninja."</span> ); 
+ 
+<span class="hljs-keyword">var</span> ninjaB = <span class="hljs-keyword">new</span> Ninja(); 
+assert( ninjaB.swingSword(), <span class="hljs-string">"Method exists and is callable."</span> );
+</code></pre>
+<p>这里首先定义函数<code>Ninja</code>,如你所见只是个空壳<br>
+但是<code>Ninja</code>拥有<code>prototype</code>属性<br>
+这个<code>prototype</code>指向一个对象<code>object</code>，也就是这个函数的原型对象<br>
+那么显而易见<code>var ninjaA = Ninja()</code>是不会创建对象的，不会实例化<br>
+通过<code>new</code>实例化ninjaB，从而创建了基于<code>Ninja</code>的<code>NinjaB</code>对象<br>
+那这是个什么过程呢？<br>
+在了解之前先看一些函数的介绍，来自&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype&quot;&gt;Prototype from Mdn&lt;/a&gt;<br>
+<code>Object.prototype.constructor</code><br>
+Specifies the function that creates an object's prototype.<br>
+返回一个指向创建了该对象原型的函数引用。需要注意的是，该属性的值是那个函数本身，而不是一个包含函数名称的字符串。<br>
+所以我们可以得出，在这个程序中<br>
+<code>Ninja.prototype.constructor</code> == <code>NinjaB.constructor</code> == <code>function Ninja(){}</code>  //始终成立</p>
+<p><code>Object.prototype.__proto__</code><br>
+Points to the object which was used as prototype when the object was instantiated<br>
+当对象实例化时将其指向其原型对象，也就是<code>Ninja.prototype</code></p>
+<p>呦西，接下来我们来看看对象到底是如何实例化的</p>
+<ul>
+<li>首先，<code>var ninjaB = new Ninja()</code>发现了野生的<code>new</code>操作符！</li>
+<li>将<code>ninjaB</code>的<code>__proto__</code>指向其原型对象<code>Ninja.prototype</code></li>
+<li>将<code>ninjaB</code>对象作为<code>this</code>去调用<code>Ninja</code>，是指其属性方法从而初始化这个对象<br>
+这样全新的对象<code>ninjaB</code>就创建完成了</li>
+</ul>
+<p>而后如果对原型对象加以修改会发生什么呢？</p>
+<pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Ninja</span>(<span class="hljs-params"></span>)</span>{} 
+ 
+Ninja.prototype.swingSword = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ 
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; 
+}; 
+ 
+<span class="hljs-keyword">var</span> ninjaA = Ninja(); 
+assert( !ninjaA, <span class="hljs-string">"Is undefined, not an instance of Ninja."</span> ); 
+ 
+<span class="hljs-keyword">var</span> ninjaB = <span class="hljs-keyword">new</span> Ninja(); 
+assert( ninjaB.swingSword(), <span class="hljs-string">"Method exists and is callable."</span> );
+</code></pre>
+<p>这个例子中，给原型对象增加了成员<code>swingSword</code>（略中二...<br>
+可以看到，最终创建的<code>ninjaB</code>对象也拥有了<code>swingSword</code><br>
+这是由于之前的<code>__proto__</code><br>
+<code>ninjaB.swingSword</code>实际上是<code>ninjaB.__proto__.swingSword</code>的一个引用</p>
+<p>那如果在<code>prototype</code>和函数里都定义了同名成员怎么办？</p>
+<pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Ninja</span>(<span class="hljs-params"></span>)</span>{ 
+  <span class="hljs-keyword">this</span>.swingSword = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ 
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; 
+  }; 
+} 
+ 
+<span class="hljs-comment">// Should return false, but will be overridden </span>
+Ninja.prototype.swingSword = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ 
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; 
+}; 
+ 
+<span class="hljs-keyword">var</span> ninja = <span class="hljs-keyword">new</span> Ninja(); 
+assert( ninja.swingSword(), <span class="hljs-string">"Calling the instance method, not the prototype method."</span> );
+</code></pre>
+<p>最终<code>ninja.swingSword</code>返回<code>true</code><br>
+也就是说，会返回实例的成员，而不会返回<code>__proto__</code>所指，也就是原型的成员<br>
+在同名状况下，原型的成员会被<code>overridden</code></p>
+<p>那既然会被覆盖，如果想利用<code>prototype</code>修改已经实例了的成员该如何？</p>
+<pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Ninja</span>(<span class="hljs-params"></span>)</span>{ 
+  <span class="hljs-keyword">this</span>.swung = <span class="hljs-literal">true</span>; 
+} 
+ 
+<span class="hljs-keyword">var</span> ninjaA = <span class="hljs-keyword">new</span> Ninja(); 
+<span class="hljs-keyword">var</span> ninjaB = <span class="hljs-keyword">new</span> Ninja(); 
+ 
+Ninja.prototype.swing = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ 
+  <span class="hljs-keyword">this</span>.swung = <span class="hljs-literal">false</span>; 
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>; 
+}; 
+ 
+assert( !ninjaA.swing().swung, <span class="hljs-string">"Verify that the swing method exists and returns an instance."</span> ); 
+assert( !ninjaB.swing().swung, <span class="hljs-string">"and that it works on all Ninja instances."</span> );
+</code></pre>
+<p>如你所见,<code>this即可</code>，虽然会被覆盖，但依旧会执行</p>
+</div></div></div><footer class="mdl-mini-footer"><div class="mdl-mini-footer__left-section"><div class="mdl-logo"> 
+My Blog <i class="material-icons">person</i> Disoul</div></div></footer></main></div></body></html><script src="/static/public/bower_components/material-design-lite/material.min.js"></script>

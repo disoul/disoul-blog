@@ -1,0 +1,29 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="/static/public/bower_components/material-design-lite/material.css" rel="stylesheet"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="/static/public/css/article.css" rel="stylesheet"><title>我的blog搭建历程(1)</title></head><body><div class="mdl-layout mdl-js-layout"><header class="mdl-layout__header mdl-layout__header--waterfall"><div class="mdl-layout__header-row"><a href="/" class="mdl-layout-title">My Blog</a><div class="mdl-layout-spacer"></div><div class="mdl-layout-spatfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-rightl mdl-textfield--align-right"><label for="waterfall-exp" class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">search</i></label><div class="mdl-textfield__expandable-holder"><input type="text" name="sample" id="waterfall-exp" class="mdl-textfield__input"></div></div></div><div class="mdl-layout__header-row"><div class="mdl-layout-spacer"></div><nav class="mdl-navigation"><a href="/" class="mdl-navigation__link">Home</a><a href="/tag/index.html" class="mdl-navigation__link">Tags</a><a href="/archives/index.html" class="mdl-navigation__link">Archives</a><a href="" class="mdl-navigation__link">AboutMe</a></nav></div></header><div class="mdl-layout__drawer"><span class="mdl-layout-title">My Blog</span><nav class="mdl-navigation"><a href="/" class="mdl-navigation__link">Home</a><a href="/tag/index.html" class="mdl-navigation__link">Tags</a><a href="/archives/index.html" class="mdl-navigation__link">Archives</a><a href="" class="mdl-navigation__link">AboutMe</a></nav></div><main id="main" class="mdl-layout__content"><div class="page-content"><div id="article-block"><h2 class="title">我的blog搭建历程(1)</h2><div class="tags"><a href="/tag/博客搭建.html">博客搭建</a></div><div class="article-content"><h1>缘由</h1>
+<p>最初决定入web坑还是受&lt;a href=&quot;http://github.com/xen0n&quot;&gt;气体&lt;/a&gt;影响,在大概看完css/html/js之类的基础知识后琢磨着做点东西<br>
+于是就有了搭博客站的想法<br>
+现在搭的也差不多了，开始回滚自己的提交看看自己一步一步走来还是蛮有感觉的</p>
+<h1>初学Django</h1>
+<p>因为有点<code>python</code>的基础，于是决定用<code>django</code>的框架去做，一方面文档比较全，一方面感觉上手应该很简单<br>
+作为一个小白，中文文档对我而言实在是太重要了，所以那几天就是每天刷&lt;a href=&quot;http://djangobook.py3k.cn/2.0/&quot;&gt;DjangoBook&lt;/a&gt;<br>
+虽然版本有些落后，而且我写到后期有很多api已经不同了，但作为入门django的确是不错的东西<br>
+很快按照教程搭好了一个基本的<code>django</code>框架，做了一个最基本的model，只有Article和Tag2个表<br>
+运行<code>./manage.py runserver</code>已经可以看到页面了，也算是迈出了第一步吧<br>
+@@</p>
+<h1>实战css和html</h1>
+<p>之前有段时间为了方便用过<code>bootstrap</code>，但气体说这样不好锻炼css能力，于是下定决心开始裸写css<br>
+真到自己写css才发现一起那些看的什么基础知识不知道怎么用了<br>
+比如一开始我想写个导航栏，各个按钮的定位排列我都做不好<br>
+之后慢慢在去查去看逐渐把css用熟<br>
+然后悟出了一点经验，我觉得学习css和学习其他语言不同<br>
+&lt;b&gt;css最重要的是积累各种技巧，也就是css tricks，也就是一个不断累计的过程&lt;/b&gt;<br>
+关于css和html构建页面花了我绝大多数的时间<br>
+期间也换了很多不同风格的页面，一开始感觉太花哨，最后一直改改改成了现在这个朴素的样子</p>
+<h1>增强自己的查询能力</h1>
+<p>记得想写一个<code>markdown</code>解析，这样我自己写博就只要写md就行了，于是查了github看到了markdown2，仔细阅读文档后发现并不复杂（这之后也就逐渐开始读英文文档了）<br>
+配置了代码块的extre以及code配色，<code>markdown</code>算是解决了<br>
+而且我一开始<code>markdown parse</code>写的很脏，直接写在view里，之后被气体提醒改到了自定义模板里（然而我代码脏好像到现在都是。。。</p>
+<p>嘛到了这里在开发环境下已经可以看到博客的大概了<br>
+之后琢磨着买了台vps开始学习部署<br>
+于是明天再敲</p>
+</div></div></div><footer class="mdl-mini-footer"><div class="mdl-mini-footer__left-section"><div class="mdl-logo"> 
+My Blog <i class="material-icons">person</i> Disoul</div></div></footer></main></div></body></html><script src="/static/public/bower_components/material-design-lite/material.min.js"></script>

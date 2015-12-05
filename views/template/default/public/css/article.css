@@ -1,0 +1,223 @@
+/*
+
+github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+
+*/
+/* line 7, ../sass/_github_hl.scss */
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #333;
+  background: #f8f8f8;
+}
+
+/* line 15, ../sass/_github_hl.scss */
+.hljs-comment,
+.hljs-quote {
+  color: #998;
+  font-style: italic;
+}
+
+/* line 21, ../sass/_github_hl.scss */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: #333;
+  font-weight: bold;
+}
+
+/* line 28, ../sass/_github_hl.scss */
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+  color: #008080;
+}
+
+/* line 36, ../sass/_github_hl.scss */
+.hljs-string,
+.hljs-doctag {
+  color: #d14;
+}
+
+/* line 41, ../sass/_github_hl.scss */
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
+  color: #900;
+  font-weight: bold;
+}
+
+/* line 48, ../sass/_github_hl.scss */
+.hljs-subst {
+  font-weight: normal;
+}
+
+/* line 52, ../sass/_github_hl.scss */
+.hljs-type,
+.hljs-class .hljs-title {
+  color: #458;
+  font-weight: bold;
+}
+
+/* line 58, ../sass/_github_hl.scss */
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
+  color: #000080;
+  font-weight: normal;
+}
+
+/* line 65, ../sass/_github_hl.scss */
+.hljs-regexp,
+.hljs-link {
+  color: #009926;
+}
+
+/* line 70, ../sass/_github_hl.scss */
+.hljs-symbol,
+.hljs-bullet {
+  color: #990073;
+}
+
+/* line 75, ../sass/_github_hl.scss */
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #0086b3;
+}
+
+/* line 80, ../sass/_github_hl.scss */
+.hljs-meta {
+  color: #999;
+  font-weight: bold;
+}
+
+/* line 85, ../sass/_github_hl.scss */
+.hljs-deletion {
+  background: #fdd;
+}
+
+/* line 89, ../sass/_github_hl.scss */
+.hljs-addition {
+  background: #dfd;
+}
+
+/* line 93, ../sass/_github_hl.scss */
+.hljs-emphasis {
+  font-style: italic;
+}
+
+/* line 97, ../sass/_github_hl.scss */
+.hljs-strong {
+  font-weight: bold;
+}
+
+/* line 4, ../sass/_global.scss */
+body {
+  min-height: 100vh;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+/* line 10, ../sass/_global.scss */
+#main {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+/* line 13, ../sass/_global.scss */
+#main .page-content {
+  flex: 1;
+}
+
+/* line 18, ../sass/_global.scss */
+a.mdl-layout-title {
+  color: white;
+  text-decoration: none;
+}
+
+/* line 23, ../sass/_global.scss */
+.mdl-mini-footer__left-section {
+  margin: auto;
+}
+
+/* line 27, ../sass/_global.scss */
+.page-content {
+  width: 980px;
+  margin: auto;
+}
+
+/**
+ * google-material-color v1.2.6
+ * https://github.com/danlevan/google-material-color
+ */
+/* line 2, ../sass/_article-content.scss */
+#article-block .title {
+  border-left: 5px solid #1E88E5;
+  padding-left: 8px;
+  margin-bottom: 5px;
+}
+/* line 7, ../sass/_article-content.scss */
+#article-block .tags {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+/* line 8, ../sass/_article-content.scss */
+#article-block .tags a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.87);
+  padding-left: 5px;
+  margin: 0;
+}
+/* line 9, ../sass/_article-content.scss */
+#article-block .tags a:before {
+  content: 'label';
+  font-family: 'Material Icons';
+  margin-right: 4px;
+}
+/* line 14, ../sass/_article-content.scss */
+#article-block .tags a:hover {
+  color: #1976D2;
+}
+
+/* line 2, ../sass/_markdown.scss */
+.article-content h1 {
+  font-size: 40px;
+  color: #1E88E5;
+  border-bottom: 1px solid #BBDEFB;
+  margin: 12px 0 8px 0;
+}
+/* line 4, ../sass/_markdown.scss */
+.article-content h1:before {
+  content: '#';
+  margin-right: 5px;
+  color: rgba(0, 0, 0, 0.54);
+}
+/* line 14, ../sass/_markdown.scss */
+.article-content h2 {
+  font-size: 35px;
+  color: #2196F3;
+  border-bottom: 1px solid #BBDEFB;
+  margin: 10px 0 6px 0;
+}
+/* line 16, ../sass/_markdown.scss */
+.article-content h2:before {
+  content: '##';
+  margin-right: 5px;
+  color: rgba(0, 0, 0, 0.54);
+}
+/* line 26, ../sass/_markdown.scss */
+.article-content p {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 16px;
+}
+/* line 31, ../sass/_markdown.scss */
+.article-content ul {
+  list-style: none;
+  border-left: 5px solid #2196F3;
+  padding-left: 12px;
+}

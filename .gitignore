@@ -84,7 +84,7 @@ webhook.py
 *.out
 
 # bower+grunt
-/bower_components/
+bower_components/
 bower.json
 node_modules/
 

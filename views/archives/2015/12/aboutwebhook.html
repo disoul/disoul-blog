@@ -1,0 +1,65 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="/static/public/bower_components/material-design-lite/material.css" rel="stylesheet"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="/static/public/css/article.css" rel="stylesheet"><title>总结一下Django利用Webhook来更新文章</title></head><body><div class="mdl-layout mdl-js-layout"><header class="mdl-layout__header mdl-layout__header--waterfall"><div class="mdl-layout__header-row"><a href="/" class="mdl-layout-title">My Blog</a><div class="mdl-layout-spacer"></div><div class="mdl-layout-spatfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-rightl mdl-textfield--align-right"><label for="waterfall-exp" class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">search</i></label><div class="mdl-textfield__expandable-holder"><input type="text" name="sample" id="waterfall-exp" class="mdl-textfield__input"></div></div></div><div class="mdl-layout__header-row"><div class="mdl-layout-spacer"></div><nav class="mdl-navigation"><a href="/" class="mdl-navigation__link">Home</a><a href="/tag/index.html" class="mdl-navigation__link">Tags</a><a href="/archives/index.html" class="mdl-navigation__link">Archives</a><a href="" class="mdl-navigation__link">AboutMe</a></nav></div></header><div class="mdl-layout__drawer"><span class="mdl-layout-title">My Blog</span><nav class="mdl-navigation"><a href="/" class="mdl-navigation__link">Home</a><a href="/tag/index.html" class="mdl-navigation__link">Tags</a><a href="/archives/index.html" class="mdl-navigation__link">Archives</a><a href="" class="mdl-navigation__link">AboutMe</a></nav></div><main id="main" class="mdl-layout__content"><div class="page-content"><div id="article-block"><h2 class="title">总结一下Django利用Webhook来更新文章</h2><div class="tags"><a href="/tag/Django.html">Django</a><a href="/tag/博客搭建.html">博客搭建</a></div><div class="article-content"><p>主要思路是我在自己的电脑上写博，博文（在/blog/articles）push上去之后<br>
+服务器那边可以自动pull并且执行add_article.py（通过比对articles文件夹类文件修改时间和最近保存的时间戳进行更新）</p>
+<p>为了实现这个想法，主要使用的有</p>
+<ul>
+<li>simplyjson（处理github端的json文件）</li>
+<li>celery+redis （任务队列，处理我的pull和更新文章）</li>
+<li>subprocess (python创建自进程执行命令行)</li>
+</ul>
+<p>其实也就这么简单，我自己都不知到我为啥弄好久，我是鶸比<br>
+@@<br>
+###Simplejson<br>
+开始用Django自带的POST方法获取post发现不行，查阅一下才发现正规做法是先获取请求的源字符串再通过simplejson解析成json字典</p>
+<pre><code class="language-python">pip install simplejson
+
+<span class="hljs-keyword">import</span> simplejson
+...
+    post = simplejson.loads(request.body) <span class="hljs-comment">#原来djangobook上的raw_post_data方法好像已经被新版本的body方法取代</span>
+...
+</code></pre>
+<p>###Celery+redis<br>
+开始气体和我说这个东西的时候觉得高大上，实际操作起来并不难<br>
+因为使用django所以直接用django-celery这个包了</p>
+<pre><code class="language-shell">pip <span class="hljs-keyword">install</span> django-celery
+pip <span class="hljs-keyword">install</span> redis
+sudo apt-<span class="hljs-keyword">get</span> <span class="hljs-keyword">install</span> redis-<span class="hljs-keyword">server</span>
+redis-<span class="hljs-keyword">server</span>
+</code></pre>
+<p>其中使用redis作为Celery的Broker（具体见celery官网教程，如果是开发环境的话还可以用django自己的database作为broker）<br>
+之后修改settings.py</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> djcelery
+
+djcelery.setup_loader()
+BROKER_URL = <span class="hljs-string">'redis://localhost:6379/0'</span>
+<span class="hljs-comment">#这里还可以定义BACKEND用来储存celery返回的结果</span>
+
+INSTALLED_APPS = (
+    ...
+	<span class="hljs-string">'djcelery'</span>,
+    ...
+)
+</code></pre>
+<p>之后更新一波数据库，因为我django是1.8，所以执行</p>
+<pre><code class="language-shell">python manage<span class="hljs-selector-class">.py</span> migrate
+</code></pre>
+<p>现在就可以在django里注册我们的task了<br>
+在app目录下创建tasks.py</p>
+<pre><code class="language-python"><span class="hljs-keyword">from</span> celery <span class="hljs-keyword">import</span> task
+
+<span class="hljs-meta">@task</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_task</span><span class="hljs-params">()</span>:</span>
+    do_something
+	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>
+
+</code></pre>
+<p>之后在view里收到github的请求时就调用这个task<br>
+最后启动worker<br>
+python manage.py celery worker --loglevel=info<br>
+当收到请求时命令行下会输出1</p>
+<p>###Subprocess<br>
+这些网上教程蛮多。。懒得打了<br>
+使用subprocess.Popen接受2种命令参数（字符串和列表）<br>
+官网上不建议使用字符串<br>
+所以使用shlex.split()的方法把命令字符串变成列表传进去</p>
+</div></div></div><footer class="mdl-mini-footer"><div class="mdl-mini-footer__left-section"><div class="mdl-logo"> 
+My Blog <i class="material-icons">person</i> Disoul</div></div></footer></main></div></body></html><script src="/static/public/bower_components/material-design-lite/material.min.js"></script>

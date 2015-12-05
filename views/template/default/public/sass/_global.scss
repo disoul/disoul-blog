@@ -1,0 +1,30 @@
+@import "compass/css3";
+@import "github_hl";
+
+body {
+    min-height: 100vh;
+    @include display-flex;
+    @include flex-direction(column);
+}
+
+#main {
+    @include display-flex;
+    @include flex-direction(column);
+    .page-content {
+        flex: 1;
+    }
+}
+
+a.mdl-layout-title {
+    color: white;
+    text-decoration: none;
+}
+
+.mdl-mini-footer__left-section {
+    margin: auto;
+}
+
+.page-content {
+    width: 980px;
+    margin: auto;
+}

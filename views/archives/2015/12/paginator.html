@@ -1,0 +1,98 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="/static/public/bower_components/material-design-lite/material.css" rel="stylesheet"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="/static/public/css/article.css" rel="stylesheet"><title>使用Django的Paginator实现页面分页效果</title></head><body><div class="mdl-layout mdl-js-layout"><header class="mdl-layout__header mdl-layout__header--waterfall"><div class="mdl-layout__header-row"><a href="/" class="mdl-layout-title">My Blog</a><div class="mdl-layout-spacer"></div><div class="mdl-layout-spatfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-rightl mdl-textfield--align-right"><label for="waterfall-exp" class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">search</i></label><div class="mdl-textfield__expandable-holder"><input type="text" name="sample" id="waterfall-exp" class="mdl-textfield__input"></div></div></div><div class="mdl-layout__header-row"><div class="mdl-layout-spacer"></div><nav class="mdl-navigation"><a href="/" class="mdl-navigation__link">Home</a><a href="/tag/index.html" class="mdl-navigation__link">Tags</a><a href="/archives/index.html" class="mdl-navigation__link">Archives</a><a href="" class="mdl-navigation__link">AboutMe</a></nav></div></header><div class="mdl-layout__drawer"><span class="mdl-layout-title">My Blog</span><nav class="mdl-navigation"><a href="/" class="mdl-navigation__link">Home</a><a href="/tag/index.html" class="mdl-navigation__link">Tags</a><a href="/archives/index.html" class="mdl-navigation__link">Archives</a><a href="" class="mdl-navigation__link">AboutMe</a></nav></div><main id="main" class="mdl-layout__content"><div class="page-content"><div id="article-block"><h2 class="title">使用Django的Paginator实现页面分页效果</h2><div class="tags"><a href="/tag/Django.html">Django</a><a href="/tag/博客搭建.html">博客搭建</a></div><div class="article-content"><p>给博客主页折腾了一个分页效果，简单看了下Paginator，不得不说Django官方文档真的很齐全</p>
+<p>##EXAMPLE<br>
+通过<code>from django.core.paginator import Paginator</code>引入Paginator，通过Paginator创建的对象拥有很多对分页效果实现有用的方法，具体见下面示例代码</p>
+<pre><code class="language-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> django.core.paginator <span class="hljs-keyword">import</span> Paginator
+<span class="hljs-meta">&gt;&gt;&gt; </span>objects = [<span class="hljs-string">'john'</span>, <span class="hljs-string">'paul'</span>, <span class="hljs-string">'george'</span>, <span class="hljs-string">'ringo'</span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span>p = Paginator(objects, <span class="hljs-number">2</span>)
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>p.count
+<span class="hljs-number">4</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>p.num_pages
+<span class="hljs-number">2</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>p.page_range
+[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>page1 = p.page(<span class="hljs-number">1</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>page1
+&lt;Page <span class="hljs-number">1</span> of <span class="hljs-number">2</span>&gt;
+<span class="hljs-meta">&gt;&gt;&gt; </span>page1.object_list
+[<span class="hljs-string">'john'</span>, <span class="hljs-string">'paul'</span>]
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>page2 = p.page(<span class="hljs-number">2</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>page2.object_list
+[<span class="hljs-string">'george'</span>, <span class="hljs-string">'ringo'</span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span>page2.has_next()
+<span class="hljs-keyword">False</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>page2.has_previous()
+<span class="hljs-keyword">True</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>page2.has_other_pages()
+<span class="hljs-keyword">True</span>
+</code></pre>
+<p>@@</p>
+<pre><code class="language-python"><span class="hljs-meta">&gt;&gt;&gt; </span>page2.next_page_number()
+Traceback (most recent call last):
+...
+EmptyPage: That page contains no results
+<span class="hljs-meta">&gt;&gt;&gt; </span>page2.previous_page_number()
+<span class="hljs-number">1</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>page2.start_index() <span class="hljs-comment"># The 1-based index of the first item on this page</span>
+<span class="hljs-number">3</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>page2.end_index() <span class="hljs-comment"># The 1-based index of the last item on this page</span>
+<span class="hljs-number">4</span>
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>p.page(<span class="hljs-number">0</span>)
+Traceback (most recent call last):
+...
+EmptyPage: That page number <span class="hljs-keyword">is</span> less than <span class="hljs-number">1</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>p.page(<span class="hljs-number">3</span>)
+Traceback (most recent call last):
+...
+EmptyPage: That page contains no results
+
+</code></pre>
+<p>只要对象拥有 <code>count()</code> 或者 <code>__len__()</code> 方法，那么就可以可以通过Paginator创建相应的Paginator对象<br>
+例如Django里的QuerySet或者一个基础的列表</p>
+<p>##在view.py里使用Pagintor</p>
+<pre><code class="language-python"><span class="hljs-keyword">from</span> django.core.paginator <span class="hljs-keyword">import</span> Paginator, EmptyPage, PageNotAnInteger
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">listing</span><span class="hljs-params">(request)</span>:</span>
+    contact_list = Contacts.objects.all()
+    paginator = Paginator(contact_list, <span class="hljs-number">25</span>) <span class="hljs-comment"># Show 25 contacts per page</span>
+
+    page = request.GET.get(<span class="hljs-string">'page'</span>)
+    <span class="hljs-keyword">try</span>:
+        contacts = paginator.page(page)
+    <span class="hljs-keyword">except</span> PageNotAnInteger:
+        <span class="hljs-comment"># If page is not an integer, deliver first page.</span>
+        contacts = paginator.page(<span class="hljs-number">1</span>)
+    <span class="hljs-keyword">except</span> EmptyPage:
+        <span class="hljs-comment"># If page is out of range (e.g. 9999), deliver last page of results.</span>
+        contacts = paginator.page(paginator.num_pages)
+
+    <span class="hljs-keyword">return</span> render_to_response(<span class="hljs-string">'list.html'</span>, {<span class="hljs-string">"contacts"</span>: contacts})
+</code></pre>
+<p>这里是通过get请求来获取页面，也可以做url解析将页面当参数传进view<br>
+通过上面示例的方法和异常，非常简单的就实现了传递相应页面的对象<br>
+接下来只要在模板里做相应的修改，渲染这些对象就可以实现了</p>
+<p>##制作一个页面跳转链接</p>
+<p>下面是官网给出的示例，通过{% if %}和Paginator的判断方法实现对不同页面发送get请求</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pagination"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"step-links"</span>&gt;</span>
+        {% if contacts.has_previous %}
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"?page={{ contacts.previous_page_number }}"</span>&gt;</span>previous<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        {% endif %}
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"current"</span>&gt;</span>
+            Page {{ contacts.number }} of {{ contacts.paginator.num_pages }}.
+        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+        {% if contacts.has_next %}
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"?page={{ contacts.next_page_number }}"</span>&gt;</span>next<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        {% endif %}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>之后修改css完成页面跳转链接<br>
+至此简单实现了分页效果，也可以通过表单发送get实现跳页，不过现在做好像没啥用...(:3..</p>
+</div></div></div><footer class="mdl-mini-footer"><div class="mdl-mini-footer__left-section"><div class="mdl-logo"> 
+My Blog <i class="material-icons">person</i> Disoul</div></div></footer></main></div></body></html><script src="/static/public/bower_components/material-design-lite/material.min.js"></script>
