@@ -148,8 +148,17 @@ a.mdl-layout-title {
 
 /* line 27, ../sass/_global.scss */
 .page-content {
-  width: 980px;
+  max-width: 980px;
+  width: 100%;
   margin: auto;
+  padding: 15px;
+}
+/* line 32, ../sass/_global.scss */
+.page-content #article-block {
+  word-wrap: break-word;
+  word-break: break-all;
+  width: 90%;
+  margin: 40px auto 40px auto;
 }
 
 /**

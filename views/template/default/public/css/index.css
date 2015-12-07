@@ -148,8 +148,17 @@ a.mdl-layout-title {
 
 /* line 27, ../sass/_global.scss */
 .page-content {
-  width: 980px;
+  max-width: 980px;
+  width: 100%;
   margin: auto;
+  padding: 15px;
+}
+/* line 32, ../sass/_global.scss */
+.page-content #article-block {
+  word-wrap: break-word;
+  word-break: break-all;
+  width: 90%;
+  margin: 40px auto 40px auto;
 }
 
 /**
@@ -161,22 +170,16 @@ a.mdl-layout-title {
   background-color: #EEEEEE;
 }
 
-/* line 7, ../sass/_content.scss */
-.page-content #article-block {
-  max-width: 980px;
-  width: 100%;
-  margin: 40px auto 40px auto;
-}
-/* line 11, ../sass/_content.scss */
+/* line 8, ../sass/_content.scss */
 .page-content #article-block .mdl-card__title {
   background-color: #448AFF;
 }
-/* line 13, ../sass/_content.scss */
+/* line 10, ../sass/_content.scss */
 .page-content #article-block .mdl-card__title h2 {
   color: white;
   text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.7);
 }
-/* line 18, ../sass/_content.scss */
+/* line 15, ../sass/_content.scss */
 .page-content #article-block #readmore {
   display: -webkit-flex;
   display: flex;
@@ -185,7 +188,7 @@ a.mdl-layout-title {
   -webkit-justify-content: flex-end;
   justify-content: flex-end;
 }
-/* line 22, ../sass/_content.scss */
+/* line 19, ../sass/_content.scss */
 .page-content #article-block #readmore a {
   color: #2979FF;
   font-weight: bold;
