@@ -3,6 +3,7 @@ title: 我的blog搭建历程(2)
 tag:
     - 博客搭建
 author: disoul
+date: 2015-09-08 23:00
 ---
 # 第一次部署
 借了一波钱之后买了一年的阿里ECS，服务器是ubuntu的  

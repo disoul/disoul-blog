@@ -4,6 +4,7 @@ tag:
     - javascript
     - web
 author: disoul
+date: 2015-10-13 23:00
 ---
 首先承认自己js已经鱼到不忍直视..于是刷了一波资料..这里只是学习记录  
 

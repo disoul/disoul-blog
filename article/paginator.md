@@ -4,6 +4,7 @@ tag:
     - Django
     - 博客搭建
 author: disoul
+date: 2015-06-23 23:00
 ---
 给博客主页折腾了一个分页效果，简单看了下Paginator，不得不说Django官方文档真的很齐全  
 

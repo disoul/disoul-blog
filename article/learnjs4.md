@@ -4,6 +4,7 @@ tag:
     - web
     - javascript
 author: disoul
+date: 2015-10-16 23:00
 ---
 # Temporary Scope 临时作用域
 至于标题啥意思一开始也没弄清楚，看栗子比较直观  

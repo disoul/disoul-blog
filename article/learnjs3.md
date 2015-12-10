@@ -4,6 +4,7 @@ tag:
     - web
     - javascript
 author: disoul
+date: 2015-10-15 23:00
 ---
 # Flexible Arguments 灵活的参数
 函数的参数也是一个学问，还是栗子

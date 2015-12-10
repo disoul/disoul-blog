@@ -4,6 +4,7 @@ tag:
     - Django
     - 博客搭建
 author: disoul
+date: 2015-06-28 13:00
 ---
 主要思路是我在自己的电脑上写博，博文（在/blog/articles）push上去之后  
 服务器那边可以自动pull并且执行add_article.py（通过比对articles文件夹类文件修改时间和最近保存的时间戳进行更新）
