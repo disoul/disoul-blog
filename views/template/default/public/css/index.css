@@ -193,3 +193,29 @@ a.mdl-layout-title {
   color: #2979FF;
   font-weight: bold;
 }
+/* line 25, ../sass/_content.scss */
+.page-content .pages {
+  margin: auto;
+}
+/* line 27, ../sass/_content.scss */
+.page-content .pages ul {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: cloumn;
+  flex-direction: cloumn;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+/* line 32, ../sass/_content.scss */
+.page-content .pages li {
+  list-style: none;
+  margin: 10px;
+}
+/* line 35, ../sass/_content.scss */
+.page-content .pages li a {
+  text-decoration: none;
+}
+/* line 38, ../sass/_content.scss */
+.page-content .pages li a.current {
+  font-weight: bold;
+}
