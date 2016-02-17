@@ -4,6 +4,7 @@ tag:
     - css
     - web
 author: disoul
+date: 2015-10-04 23:00
 ---
 今天写css踩了一波坑，于是记录下css的优先级规则  
 # 样式的优先级

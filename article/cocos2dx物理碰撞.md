@@ -3,6 +3,7 @@ title: 使用cocos2dx-x3.0的物理引擎实现碰撞检测
 tag:
     - cocos2dx
 author: disoul
+date: 2015-05-28 11:00
 ---
 前几天帮人写了一个小游戏因为传统rect碰撞检测写起来太麻烦于是研究了下自带的物理引擎碰撞检测  
 

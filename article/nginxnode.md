@@ -4,6 +4,7 @@ tag:
     - web
     - node.js
 author: disoul
+date: 2015-07-23 23:00
 ---
 
 最近为了学node写了一个node的项目,部署到服务器上时使用了这个方法，在此做下记录    

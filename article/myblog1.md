@@ -3,6 +3,7 @@ title: 我的blog搭建历程(1)
 tag:
     - 博客搭建
 author: disoul
+date: 2015-09-05 23:00
 ---
 
 # 缘由
