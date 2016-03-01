@@ -26,14 +26,6 @@ tag:
 # 技能树
 整理一下做过的项目和学到的技能
 
-## LOVECALL
-
-* 项目源码[https://github.com/LoveCallProject/lovecall-frontend](https://github.com/LoveCallProject/lovecall-frontend)
-* 项目地址[http://lovecall.moe](http://lovecall.moe)
-这是和[xen0n](https://github.com/xen0n)合作的一个`lovelive`**应援练习APP**
-
-项目采用的技术栈为 Webpack + AngularJS + AngularMaterial
-
 ## HANAYO
 
 * 项目源码[https://github.com/disoul/hanayo](https://github.com/disoul/hanayo)
